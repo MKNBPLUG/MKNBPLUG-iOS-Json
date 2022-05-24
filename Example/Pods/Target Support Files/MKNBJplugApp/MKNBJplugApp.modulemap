@@ -1,0 +1,6 @@
+framework module MKNBJplugApp {
+  umbrella header "MKNBJplugApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

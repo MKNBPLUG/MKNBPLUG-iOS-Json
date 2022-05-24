@@ -1,0 +1,59 @@
+{
+  "name": "MKNBJplugApp",
+  "version": "0.0.1",
+  "summary": "A short description of MKNBJplugApp.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/aadyx2007@163.com/MKNBJplugApp",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "aadyx2007@163.com": "aadyx2007@163.com"
+  },
+  "source": {
+    "git": "https://github.com/aadyx2007@163.com/MKNBJplugApp.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "12.0"
+  },
+  "source_files": "MKNBJplugApp/Classes/**/*",
+  "resource_bundles": {
+    "MKNBJplugApp": [
+      "MKNBJplugApp/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "MKBaseModuleLibrary": [
+
+    ],
+    "MKBaseBleModule": [
+
+    ],
+    "MKCustomUIModule": [
+
+    ],
+    "MKBaseMQTTModule": [
+
+    ],
+    "HHTransition": [
+
+    ],
+    "MLInputDodger": [
+
+    ],
+    "iOSDFULibrary": [
+
+    ],
+    "FMDB": [
+
+    ],
+    "libxlsxwriter": [
+
+    ],
+    "SSZipArchive": [
+
+    ]
+  }
+}
