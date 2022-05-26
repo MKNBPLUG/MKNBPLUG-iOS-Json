@@ -95,7 +95,7 @@
 }
 
 - (BOOL)validParams {
-    if (!ValidStr(self.interval) || [self.interval integerValue] < 0 || [self.interval integerValue] > 86400) {
+    if (!ValidStr(self.interval) || [self.interval integerValue] < 0 || [self.interval integerValue] > 86400 || ([self.interval integerValue] > 0 && [self.interval integerValue] < 10)) {
         return NO;
     }
     if (!ValidStr(self.threshold) || [self.threshold integerValue] < 0 || [self.threshold integerValue] > 100) {

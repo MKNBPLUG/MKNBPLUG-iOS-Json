@@ -95,10 +95,10 @@
 }
 
 - (BOOL)validParams {
-    if (!ValidStr(self.switchInterval) || [self.switchInterval integerValue] < 0 || [self.switchInterval integerValue] > 86400) {
+    if (!ValidStr(self.switchInterval) || [self.switchInterval integerValue] < 0 || [self.switchInterval integerValue] > 86400 || ([self.switchInterval integerValue] > 0 && [self.switchInterval integerValue] < 10)) {
         return NO;
     }
-    if (!ValidStr(self.countdownInterval) || [self.countdownInterval integerValue] < 0 || [self.countdownInterval integerValue] > 86400) {
+    if (!ValidStr(self.countdownInterval) || [self.countdownInterval integerValue] < 0 || [self.countdownInterval integerValue] > 86400 || ([self.countdownInterval integerValue] > 0 && [self.countdownInterval integerValue] < 10)) {
         return NO;
     }
     return YES;

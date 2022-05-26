@@ -55,6 +55,10 @@
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }
+    if ((switchInterval > 0 && switchInterval < 10) || (countdownInterval > 0 && countdownInterval < 10)) {
+        [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
+        return;
+    }
     NSString *checkMsg = [self checkDeviceID:deviceID topic:topic macAddress:macAddress];
     if (ValidStr(checkMsg)) {
         [self operationFailedBlockWithMsg:checkMsg failedBlock:failedBlock];
@@ -87,6 +91,10 @@
                              sucBlock:(void (^)(id returnData))sucBlock
                           failedBlock:(void (^)(NSError *error))failedBlock {
     if (interval < 0 || interval > 86400 || threshold < 0 || threshold > 100) {
+        [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
+        return;
+    }
+    if (interval > 0 && interval < 10) {
         [self operationFailedBlockWithMsg:@"Params error" failedBlock:failedBlock];
         return;
     }
@@ -1313,9 +1321,6 @@
 + (BOOL)checkMQTTLWTProtocol:(id <nbj_updateLWTProtocol>)protocol {
     if (!protocol || ![protocol conformsToProtocol:@protocol(nbj_updateLWTProtocol)]) {
         return NO;
-    }
-    if (!protocol.lwtStatus) {
-        return YES;
     }
     
     if (!ValidStr(protocol.lwtTopic) || protocol.lwtTopic.length > 128 || ![protocol.lwtTopic isAsciiString]) {

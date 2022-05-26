@@ -29,8 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
                           failedBlock:(void (^)(NSError *error))failedBlock;
 
 /// 配置开关上报和倒计时上报间隔
-/// @param switchInterval 开关上报间隔，0s~86400s
-/// @param countdownInterval 倒计时上报间隔，0s~86400s
+/// @param switchInterval 开关上报间隔，0s or 10s~86400s
+/// @param countdownInterval 倒计时上报间隔，0s or 10s~86400s
 /// @param deviceID deviceID,1-32 Characters
 /// @param macAddress Mac address of the device
 /// @param topic topic 1-128 Characters
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
                            failedBlock:(void (^)(NSError *error))failedBlock;
 
 /// 配置电量上报信息
-/// @param interval 电量信息上报间隔，0s~86400s
+/// @param interval 电量信息上报间隔，0s or 10s~86400s
 /// @param threshold 电量变化上报阈值，0%~100%
 /// @param deviceID deviceID,1-32 Characters
 /// @param macAddress Mac address of the device

@@ -334,16 +334,14 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
             return @"Client File cannot be empty.";
         }
     }
-    if (self.lwtStatus) {
-        if (self.lwtQos < 0 || self.lwtQos > 2) {
-            return @"LWT Qos error";
-        }
-        if (!ValidStr(self.lwtTopic) || self.lwtTopic.length > 128 || ![self.lwtTopic isAsciiString]) {
-            return @"LWT Topic error";
-        }
-        if (!ValidStr(self.lwtPayload) || self.lwtPayload.length > 128 || ![self.lwtPayload isAsciiString]) {
-            return @"LWT Payload error";
-        }
+    if (self.lwtQos < 0 || self.lwtQos > 2) {
+        return @"LWT Qos error";
+    }
+    if (!ValidStr(self.lwtTopic) || self.lwtTopic.length > 128 || ![self.lwtTopic isAsciiString]) {
+        return @"LWT Topic error";
+    }
+    if (!ValidStr(self.lwtPayload) || self.lwtPayload.length > 128 || ![self.lwtPayload isAsciiString]) {
+        return @"LWT Payload error";
     }
     if (self.apn.length > 100 || (ValidStr(self.apn) && ![self.apn isAsciiString])) {
         return @"APN error";

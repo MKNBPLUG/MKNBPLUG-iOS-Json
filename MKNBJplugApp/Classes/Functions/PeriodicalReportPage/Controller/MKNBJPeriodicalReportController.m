@@ -136,7 +136,7 @@ MKTextFieldCellDelegate>
     cellModel1.msgFont = MKFont(13.f);
     cellModel1.maxLength = 5;
     cellModel1.unit = @"sec";
-    cellModel1.textPlaceholder = @"0 ~ 86400";
+    cellModel1.textPlaceholder = @"0 or 10 ~ 86400";
     cellModel1.textFieldType = mk_realNumberOnly;
     cellModel1.textFieldValue = self.dataModel.switchInterval;
     [self.dataList addObject:cellModel1];
@@ -147,7 +147,7 @@ MKTextFieldCellDelegate>
     cellModel2.msgFont = MKFont(13.f);
     cellModel2.maxLength = 5;
     cellModel2.unit = @"sec";
-    cellModel2.textPlaceholder = @"0 ~ 86400";
+    cellModel2.textPlaceholder = @"0 or 10 ~ 86400";
     cellModel2.textFieldType = mk_realNumberOnly;
     cellModel2.textFieldValue = self.dataModel.countdownInterval;
     cellModel2.noteMsg = @"Tips: The countdown report interval is related to the timer. If the report interval is greater than the timer, there will be no message reported.";

@@ -135,7 +135,7 @@ MKTextFieldCellDelegate>
     cellModel1.msgFont = MKFont(14.f);
     cellModel1.maxLength = 5;
     cellModel1.unit = @"sec";
-    cellModel1.textPlaceholder = @"0 ~ 86400";
+    cellModel1.textPlaceholder = @"0 or 10 ~ 86400";
     cellModel1.textFieldType = mk_realNumberOnly;
     cellModel1.textFieldValue = self.dataModel.interval;
     [self.dataList addObject:cellModel1];
