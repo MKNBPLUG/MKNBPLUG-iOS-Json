@@ -52,6 +52,8 @@ static dispatch_once_t onceToken;
 
 @property (nonatomic, strong)NSOperationQueue *operationQueue;
 
+@property (nonatomic, strong)NSMutableDictionary *subscriptions;
+
 @end
 
 @implementation MKNBJMQTTServerManager
@@ -256,11 +258,28 @@ static dispatch_once_t onceToken;
 }
 
 - (void)subscriptions:(NSArray <NSString *>*)topicList {
+    for (NSString *topic in topicList) {
+        if (ValidStr(topic)) {
+            [self.subscriptions setObject:@(MQTTQosLevelAtLeastOnce) forKey:topic];
+        }
+    }
     [[MKMQTTServerManager shared] subscriptions:topicList qosLevel:MQTTQosLevelAtLeastOnce];
 }
 
 - (void)unsubscriptions:(NSArray <NSString *>*)topicList {
+    for (NSString *topic in topicList) {
+        if (ValidStr(topic)) {
+            [self.subscriptions removeObjectForKey:topic];
+        }
+    }
     [[MKMQTTServerManager shared] unsubscriptions:topicList];
+}
+
+- (void)clearAllSubscriptions {
+    if (!ValidDict(self.subscriptions)) {
+        return;
+    }
+    [[MKMQTTServerManager shared] unsubscriptions:self.subscriptions.allKeys];
 }
 
 - (id<MKNBJServerParamsProtocol>)currentServerParams {
@@ -485,6 +504,13 @@ static dispatch_once_t onceToken;
         _operationQueue.maxConcurrentOperationCount = 1;
     }
     return _operationQueue;
+}
+
+- (NSMutableDictionary *)subscriptions {
+    if (!_subscriptions) {
+        _subscriptions = [NSMutableDictionary dictionary];
+    }
+    return _subscriptions;
 }
 
 @end

@@ -123,9 +123,9 @@ UITableViewDataSource>
     [self.dataList addObject:cellModel8];
     
     MKNBJMQTTSettingForDeviceCellModel *cellModel9 = [[MKNBJMQTTSettingForDeviceCellModel alloc] init];
-    cellModel7.msg = @"Keep Alive";
-    cellModel7.rightMsg = SafeStr(self.dataModel.keepAlive);
-    [self.dataList addObject:cellModel7];
+    cellModel9.msg = @"Keep Alive";
+    cellModel9.rightMsg = SafeStr(self.dataModel.keepAlive);
+    [self.dataList addObject:cellModel9];
     
     MKNBJMQTTSettingForDeviceCellModel *cellModel10 = [[MKNBJMQTTSettingForDeviceCellModel alloc] init];
     cellModel10.msg = @"LWT";

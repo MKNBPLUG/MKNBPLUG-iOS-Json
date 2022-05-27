@@ -354,7 +354,7 @@ MKNBJModifyServerFooterViewDelegate>
     } failedBlock:^(NSError * _Nonnull error) {
         @strongify(self);
         [[MKHudManager share] hide];
-        [self.view showCentralToast:@"Set up failed!"];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 

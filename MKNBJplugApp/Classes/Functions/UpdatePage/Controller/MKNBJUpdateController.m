@@ -15,6 +15,7 @@
 
 #import "MKNormalTextCell.h"
 #import "MKHudManager.h"
+#import "MKAlertController.h"
 
 #import "MKNBJCentralManager.h"
 
@@ -82,12 +83,10 @@
         
     } sucBlock:^{
         @strongify(self);
-        [[MKHudManager share] showHUDWithTitle:@"Update firmware successfully!" inView:self.view isPenetration:NO];
-        [self performSelector:@selector(updateComplete) withObject:nil afterDelay:3.f];
+        [self showAlertWithMsg:@"Update Firmware successfully! Please reconnect the device."];
     } failedBlock:^(NSError * _Nonnull error) {
         @strongify(self);
-        [[MKHudManager share] showHUDWithTitle:@"Opps!DFU Failed. Please try again!" inView:self.view isPenetration:NO];
-        [self performSelector:@selector(updateComplete) withObject:nil afterDelay:1.f];
+        [self showAlertWithMsg:@"Opps, update firmware failed! Please reconnect and try it again!"];
     }];
 }
 
@@ -103,6 +102,21 @@
 }
 
 #pragma mark -
+- (void)showAlertWithMsg:(NSString *)msg {
+    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Update Firmware"
+                                                                       message:msg
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    alertView.notificationName = @"mk_nbj_needDismissAlert";
+    @weakify(self);
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        @strongify(self);
+        [self updateComplete];
+    }];
+    [alertView addAction:confirmAction];
+    
+    [self presentViewController:alertView animated:YES completion:nil];
+}
+
 - (void)updateComplete {
     self.leftButton.enabled = YES;
     [[MKHudManager share] hide];

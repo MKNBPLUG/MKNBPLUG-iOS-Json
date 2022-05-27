@@ -241,12 +241,19 @@ MKNBJDeviceListCellDelegate>
     
     NSInteger index = 0;
     BOOL contain = NO;
+    NSString *unsubTopic = @"";
     for (NSInteger i = 0; i < self.dataList.count; i ++) {
         MKNBJDeviceModel *model = self.dataList[i];
         if ([model.macAddress isEqualToString:user[@"macAddress"]]) {
+            if (!ValidStr([MKNBJMQTTServerManager shared].serverParams.subscribeTopic)) {
+                //app端MQTT订阅了指定的topic，不能取消订阅
+                //如果是app端MQTT订阅每一个设备的topic，则切网成功之后需要选取消原来的订阅，增加新的订阅
+                unsubTopic = [model currentPublishedTopic];
+            }
             model.clientID = user[@"clientID"];
             model.subscribedTopic = user[@"subscribedTopic"];
             model.publishedTopic = user[@"publishedTopic"];
+            model.state = MKNBJDeviceModelStateOffline;
             contain = YES;
             break;
         }
@@ -254,7 +261,7 @@ MKNBJDeviceListCellDelegate>
     if (!contain) {
         return;
     }
-    
+    [[MKNBJMQTTServerManager shared] unsubscriptions:@[unsubTopic]];
     [self loadMainViews];
     [[MKNBJMQTTServerManager shared] subscriptions:@[user[@"publishedTopic"]]];
 }
@@ -358,7 +365,7 @@ MKNBJDeviceListCellDelegate>
     }
     if ([MKNBJMQTTServerManager shared].state == MKNBJMQTTSessionManagerStateConnected) {
         [self.loadingView hidden];
-        self.defaultTitle = @"MKNBJplugApp";
+        self.defaultTitle = @"MKNBPLUG";
         return;
     }
     if ([MKNBJMQTTServerManager shared].state == MKNBJMQTTSessionManagerStateError) {
@@ -377,6 +384,19 @@ MKNBJDeviceListCellDelegate>
 - (void)connectFailed {
     [self.loadingView hidden];
     self.defaultTitle = @"Connect Failed";
+}
+
+- (void)reloadDeviceTopics {
+    //切网之后需要重新加载topic
+    //先取消当前所有订阅
+    [[MKNBJMQTTServerManager shared] clearAllSubscriptions];
+    //重新加载需要订阅的topic
+    NSMutableArray *topicList = [NSMutableArray array];
+    for (NSInteger i = 0; i < self.dataList.count; i ++) {
+        MKNBJDeviceModel *deviceModel = self.dataList[i];
+        [topicList addObject:[deviceModel currentPublishedTopic]];
+    }
+    [[MKNBJMQTTServerManager shared] subscriptions:topicList];
 }
 
 #pragma mark - event method
@@ -518,6 +538,10 @@ MKNBJDeviceListCellDelegate>
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(connectFailed)
                                                  name:@"MKNBJMQTTServerConnectFailedNotification"
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadDeviceTopics)
+                                                 name:@"mk_nbj_needReloadTopicsNotification"
                                                object:nil];
 }
 

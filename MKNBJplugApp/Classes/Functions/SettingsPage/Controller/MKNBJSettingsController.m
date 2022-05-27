@@ -60,6 +60,8 @@ mk_textSwitchCellDelegate>
 
 @property (nonatomic, strong)NSMutableArray *section4List;
 
+@property (nonatomic, strong)NSMutableArray *section5List;
+
 @property (nonatomic, strong)NSMutableArray *headerList;
 
 @property (nonatomic, strong)MKNBJSettingsPageModel *dataModel;
@@ -95,7 +97,7 @@ mk_textSwitchCellDelegate>
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 1 || section == 3 || section == 4) {
+    if (section == 1 || section == 3 || section == 5) {
         return 10.f;
     }
     return 0.f;
@@ -174,19 +176,19 @@ mk_textSwitchCellDelegate>
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 3 && indexPath.row == 2) {
+    if (indexPath.section == 4 && indexPath.row == 0) {
         //MQTT Settings for Device
         MKNBJMQTTSettingInfoController *vc = [[MKNBJMQTTSettingInfoController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 3 && indexPath.row == 3) {
+    if (indexPath.section == 4 && indexPath.row == 1) {
         //Device Information
         MKNBJDeviceInfoController *vc = [[MKNBJDeviceInfoController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
         return;
     }
-    if (indexPath.section == 4 && indexPath.row == 0) {
+    if (indexPath.section == 5 && indexPath.row == 0) {
         //Debug Mode
         [self startConnectDevice];
         return;
@@ -210,10 +212,13 @@ mk_textSwitchCellDelegate>
         return self.section2List.count;
     }
     if (section == 3) {
-        return self.section3List.count;
+        return (self.dataModel.debugMode ? 0 : self.section3List.count);
     }
     if (section == 4) {
-        return (self.dataModel.debugMode ? self.section4List.count : 0);
+        return self.section4List.count;
+    }
+    if (section == 5) {
+        return (self.dataModel.debugMode ? self.section5List.count : 0);
     }
     return 0;
 }
@@ -240,8 +245,13 @@ mk_textSwitchCellDelegate>
         cell.dataModel = self.section3List[indexPath.row];
         return cell;
     }
+    if (indexPath.section == 4) {
+        MKSettingTextCell *cell = [MKSettingTextCell initCellWithTableView:tableView];
+        cell.dataModel = self.section4List[indexPath.row];
+        return cell;
+    }
     MKSettingTextCell *cell = [MKSettingTextCell initCellWithTableView:tableView];
-    cell.dataModel = self.section4List[indexPath.row];
+    cell.dataModel = self.section5List[indexPath.row];
     return cell;
 }
 
@@ -469,8 +479,9 @@ mk_textSwitchCellDelegate>
     [self loadSection2Datas];
     [self loadSection3Datas];
     [self loadSection4Datas];
+    [self loadSection5Datas];
     
-    for (NSInteger i = 0; i < 5; i ++) {
+    for (NSInteger i = 0; i < 6; i ++) {
         MKTableSectionLineHeaderModel *headerModel = [[MKTableSectionLineHeaderModel alloc] init];
         [self.headerList addObject:headerModel];
     }
@@ -534,21 +545,23 @@ mk_textSwitchCellDelegate>
     MKSettingTextCellModel *cellModel2 = [[MKSettingTextCellModel alloc] init];
     cellModel2.leftMsg = @"OTA";
     [self.section3List addObject:cellModel2];
-    
-    MKSettingTextCellModel *cellModel3 = [[MKSettingTextCellModel alloc] init];
-    cellModel3.leftMsg = @"MQTT Settings for Device";
-    cellModel3.leftMsgTextFont = MKFont(14.f);
-    [self.section3List addObject:cellModel3];
-    
-    MKSettingTextCellModel *cellModel4 = [[MKSettingTextCellModel alloc] init];
-    cellModel4.leftMsg = @"Device Information";
-    [self.section3List addObject:cellModel4];
 }
 
 - (void)loadSection4Datas {
+    MKSettingTextCellModel *cellModel1 = [[MKSettingTextCellModel alloc] init];
+    cellModel1.leftMsg = @"MQTT Settings for Device";
+    cellModel1.leftMsgTextFont = MKFont(14.f);
+    [self.section4List addObject:cellModel1];
+    
+    MKSettingTextCellModel *cellModel2 = [[MKSettingTextCellModel alloc] init];
+    cellModel2.leftMsg = @"Device Information";
+    [self.section4List addObject:cellModel2];
+}
+
+- (void)loadSection5Datas {
     MKSettingTextCellModel *cellModel = [[MKSettingTextCellModel alloc] init];
     cellModel.leftMsg = @"Debug Mode";
-    [self.section4List addObject:cellModel];
+    [self.section5List addObject:cellModel];
 }
 
 #pragma mark - UI
@@ -610,6 +623,13 @@ mk_textSwitchCellDelegate>
         _section4List = [NSMutableArray array];
     }
     return _section4List;
+}
+
+- (NSMutableArray *)section5List {
+    if (!_section5List) {
+        _section5List = [NSMutableArray array];
+    }
+    return _section5List;
 }
 
 - (NSMutableArray *)headerList {

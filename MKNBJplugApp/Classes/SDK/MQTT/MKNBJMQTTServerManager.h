@@ -94,6 +94,8 @@ extern NSString *const MKNBJReceivedDownMQTTParamsDataCompleteNotification;
  */
 - (void)unsubscriptions:(NSArray <NSString *>*)topicList;
 
+- (void)clearAllSubscriptions;
+
 /// Send Data
 /// @param data json
 /// @param topic topic,1-128 Characters

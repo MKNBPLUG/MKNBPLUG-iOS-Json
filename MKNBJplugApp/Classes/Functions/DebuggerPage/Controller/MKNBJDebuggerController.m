@@ -230,24 +230,22 @@ MKNBJDebuggerCellDelegate>
 }
 
 - (void)deleteButtonPressed {
-    [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
-    [MKNBJLogDatabaseManager deleteDatasWithMacAddress:self.macAddress sucBlock:^{
-        NSMutableArray *tempList = [NSMutableArray array];
-        for (NSInteger i = 0; i < self.dataList.count; i ++) {
-            MKNBJDebuggerCellModel *cellModel = self.dataList[i];
-            if (!cellModel.selected) {
-                //未选中的就是保留的
-                cellModel.index = tempList.count;
-                [tempList addObject:cellModel];
-            }
-        }
-        [self.dataList removeAllObjects];
-        [self.dataList addObjectsFromArray:tempList];
-        [self saveDataListToLocal];
-    } failedBlock:^(NSError * _Nonnull error) {
-        [[MKHudManager share] hide];
-        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@""
+                                                                       message:@"Please confirm whether to delete the files?"
+                                                                preferredStyle:UIAlertControllerStyleAlert];
+    alertView.notificationName = @"mk_nbj_needDismissAlert";
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
     }];
+    [alertView addAction:cancelAction];
+    
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self deleteLogDatas];
+    }];
+    [alertView addAction:confirmAction];
+    
+    [self presentViewController:alertView animated:YES completion:nil];
 }
 
 - (void)exportButtonPressed {
@@ -335,11 +333,23 @@ MKNBJDebuggerCellDelegate>
         text = [text stringByAppendingString:tempString];
     }
     MKNBJDebuggerCellModel *cellModel = [[MKNBJDebuggerCellModel alloc] init];
-    cellModel.index = self.dataList.count;
     cellModel.selected = NO;
     cellModel.logInfo = text;
     cellModel.timeMsg = self.logStartTime;
-    [self.dataList addObject:cellModel];
+    if (self.dataList.count == 0) {
+        cellModel.index = 0;
+        [self.dataList addObject:cellModel];
+    }else {
+        [self.dataList insertObject:cellModel atIndex:0];
+        NSMutableArray *tempList = [NSMutableArray arrayWithArray:self.dataList];
+        [self.dataList removeAllObjects];
+        for (NSInteger i = 0; i < tempList.count; i ++) {
+            MKNBJDebuggerCellModel *tempModel = tempList[i];
+            tempModel.index = i;
+            [self.dataList addObject:tempModel];
+        }
+    }
+    
     [self saveDataListToLocal];
     [self.contentList removeAllObjects];
 }
@@ -393,6 +403,27 @@ MKNBJDebuggerCellDelegate>
     self.exportButton.topIcon.image = LOADICON(@"MKNBJplugApp", @"MKNBJDebuggerController", @"nbj_export_disableIcon.png");
 }
 
+- (void)deleteLogDatas {
+    [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
+    [MKNBJLogDatabaseManager deleteDatasWithMacAddress:self.macAddress sucBlock:^{
+        NSMutableArray *tempList = [NSMutableArray array];
+        for (NSInteger i = 0; i < self.dataList.count; i ++) {
+            MKNBJDebuggerCellModel *cellModel = self.dataList[i];
+            if (!cellModel.selected) {
+                //未选中的就是保留的
+                cellModel.index = tempList.count;
+                [tempList addObject:cellModel];
+            }
+        }
+        [self.dataList removeAllObjects];
+        [self.dataList addObjectsFromArray:tempList];
+        [self saveDataListToLocal];
+    } failedBlock:^(NSError * _Nonnull error) {
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    }];
+}
+
 - (void)showTipsAlert:(NSString *)msg {
     MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Tips!"
                                                                        message:msg
@@ -408,7 +439,7 @@ MKNBJDebuggerCellDelegate>
 
 #pragma mark - UI
 - (void)loadSubViews {
-    self.defaultTitle = @"Debugger Mode";
+    self.defaultTitle = @"Debug Mode";
     UIView *headerView = [self tableHeaderView];
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {

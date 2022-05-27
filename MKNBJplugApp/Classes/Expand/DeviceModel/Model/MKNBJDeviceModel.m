@@ -43,7 +43,7 @@ NSString *const MKNBJDeviceModelOfflineNotification = @"MKNBJDeviceModelOfflineN
     @weakify(self);
     dispatch_source_set_event_handler(self.receiveTimer, ^{
         @strongify(self);
-        if (self.receiveTimerCount >= 62.f) {
+        if (self.receiveTimerCount >= 91.f) {
             //接受数据超时
             dispatch_cancel(self.receiveTimer);
             self.receiveTimerCount = 0;

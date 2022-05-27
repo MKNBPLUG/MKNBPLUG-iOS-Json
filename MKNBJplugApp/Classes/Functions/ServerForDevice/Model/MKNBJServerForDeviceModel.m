@@ -223,7 +223,7 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
             [self operationFailedBlockWithMsg:@"Config SSL Status Timeout" block:failedBlock];
             return;
         }
-        if (self.sslIsOn && self.certificate > 0) {
+        if (self.sslIsOn) {
             if (![self configCAFile]) {
                 [self operationFailedBlockWithMsg:@"Config CA File Timeout" block:failedBlock];
                 return;

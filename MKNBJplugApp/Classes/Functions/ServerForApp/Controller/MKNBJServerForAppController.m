@@ -401,6 +401,8 @@ MFMailComposeViewControllerDelegate>
         [[NSNotificationCenter defaultCenter] removeObserver:self
                                                         name:MKNBJMQTTSessionManagerStateChangedNotification
                                                       object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_nbj_needReloadTopicsNotification"
+                                                            object:nil];
         [self performSelector:@selector(backAction) withObject:nil afterDelay:0.5f];
         return;
     }
@@ -481,6 +483,9 @@ MFMailComposeViewControllerDelegate>
     [[NSNotificationCenter defaultCenter] removeObserver:self
                                                     name:MKNBJMQTTSessionManagerStateChangedNotification
                                                   object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MKNBJMQTTServerConnectFailedNotification" object:nil];
+    [[MKNBJMQTTServerManager shared] disconnect];
+    [self performSelector:@selector(backAction) withObject:nil afterDelay:0.5f];
 }
 
 - (void)startReceiveTimer{
