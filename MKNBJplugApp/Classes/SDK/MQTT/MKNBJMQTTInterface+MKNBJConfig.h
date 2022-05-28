@@ -413,7 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// OTA upgrade host firmware.
 /// @param host 1-64 Characters
 /// @param port 1~65535
-/// @param filePath 1-100 Characters
+/// @param filePath 1-128 Characters
 /// @param deviceID deviceID,1-32 Characters
 /// @param macAddress Mac address of the device
 /// @param topic topic 1-128 Characters
@@ -431,7 +431,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// OTA CA certificate.
 /// @param host 1-64 Characters
 /// @param port 1~65535
-/// @param filePath 1-100 Characters
+/// @param filePath 1-128 Characters
 /// @param deviceID deviceID,1-32 Characters
 /// @param macAddress Mac address of the device
 /// @param topic topic 1-128 Characters
@@ -449,9 +449,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// OTA Self signed server certificates.
 /// @param host 1-64 Characters
 /// @param port 1~65535
-/// @param caFilePath 1-100 Characters
-/// @param clientKeyPath 1-100 Characters
-/// @param clientCertPath 1-100 Characters
+/// @param caFilePath 1-128 Characters
+/// @param clientKeyPath 1-128 Characters
+/// @param clientCertPath 1-128 Characters
 /// @param deviceID deviceID,1-32 Characters
 /// @param macAddress Mac address of the device
 /// @param topic topic 1-128 Characters

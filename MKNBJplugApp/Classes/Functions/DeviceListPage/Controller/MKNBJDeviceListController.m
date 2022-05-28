@@ -226,7 +226,11 @@ MKNBJDeviceListCellDelegate>
         [self.dataList replaceObjectAtIndex:index withObject:deviceModel];
     }else {
         //不存在，则添加到设备列表
-        [self.dataList addObject:deviceModel];
+        if (self.dataList.count == 0) {
+            [self.dataList addObject:deviceModel];
+        }else {
+            [self.dataList insertObject:deviceModel atIndex:0];
+        }
     }
     
     [self loadMainViews];
@@ -498,6 +502,7 @@ MKNBJDeviceListCellDelegate>
         [self.dataList addObject:deviceModel];
         [topicList addObject:[deviceModel currentPublishedTopic]];
     }
+    self.dataList = [[self.dataList reverseObjectEnumerator] allObjects];
     [self loadMainViews];
     [[MKNBJMQTTServerManager shared] subscriptions:topicList];
 }

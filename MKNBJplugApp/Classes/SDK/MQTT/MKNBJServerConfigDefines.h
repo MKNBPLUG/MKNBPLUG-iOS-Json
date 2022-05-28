@@ -56,9 +56,9 @@ typedef NS_ENUM(NSInteger, mk_nbj_mqtt_networkPriority) {
 
 /*
  Blue.
- European and French specifications:1 <=  b_color <= 4411.
- American specifications:1 <=  b_color <= 2155.
- British specifications:1 <=  b_color <= 3584.
+ European and French specifications:2 <=  b_color <= 4411.
+ American specifications:2 <=  b_color <= 2155.
+ British specifications:2 <=  b_color <= 3584.
  */
 @property (nonatomic, assign)NSInteger b_color;
 
@@ -146,13 +146,13 @@ typedef NS_ENUM(NSInteger, mk_nbj_mqtt_networkPriority) {
 /// Port of the server where the certificate is located.0~65535
 @property (nonatomic, assign)NSInteger sslPort;
 
-/// The path of the CA certificate on the ssl certificate server.1-100Characters
+/// The path of the CA certificate on the ssl certificate server.1-128Characters
 @property (nonatomic, copy)NSString *caFilePath;
 
-/// The path of the Client Private Key on the ssl certificate server.1-100Characters
+/// The path of the Client Private Key on the ssl certificate server.1-128Characters
 @property (nonatomic, copy)NSString *clientKeyPath;
 
-/// The path of the Client certificate on the ssl certificate server.1-100Characters
+/// The path of the Client certificate on the ssl certificate server.1-128Characters
 @property (nonatomic, copy)NSString *clientCertPath;
 
 @end

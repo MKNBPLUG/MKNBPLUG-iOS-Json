@@ -203,28 +203,28 @@ static CGFloat const textFieldHeight = 30.f;
     MKNBJModifyServerSSLTextFieldModel *caModel = [[MKNBJModifyServerSSLTextFieldModel alloc] init];
     caModel.index = 2;
     caModel.msg = @"CA File Path";
-    caModel.textPlaceholder = @"1-100Characters";
+    caModel.textPlaceholder = @"1-128Characters";
     caModel.textFieldType = mk_normal;
     caModel.textFieldValue = SafeStr(_dataModel.caFilePath);
-    caModel.maxLength = 100;
+    caModel.maxLength = 128;
     self.caFileView.dataModel = caModel;
     
     MKNBJModifyServerSSLTextFieldModel *clientKeyModel = [[MKNBJModifyServerSSLTextFieldModel alloc] init];
     clientKeyModel.index = 3;
     clientKeyModel.msg = @"Client Key File";
-    clientKeyModel.textPlaceholder = @"1-100Characters";
+    clientKeyModel.textPlaceholder = @"1-128Characters";
     clientKeyModel.textFieldType = mk_normal;
     clientKeyModel.textFieldValue = SafeStr(_dataModel.clientKeyPath);
-    clientKeyModel.maxLength = 100;
+    clientKeyModel.maxLength = 128;
     self.clientKeyView.dataModel = clientKeyModel;
     
     MKNBJModifyServerSSLTextFieldModel *clientModel = [[MKNBJModifyServerSSLTextFieldModel alloc] init];
     clientModel.index = 4;
     clientModel.msg = @"Client Cert File";
-    clientModel.textPlaceholder = @"1-100Characters";
+    clientModel.textPlaceholder = @"1-128Characters";
     clientModel.textFieldType = mk_normal;
     clientModel.textFieldValue = SafeStr(_dataModel.clientCertPath);
-    clientModel.maxLength = 100;
+    clientModel.maxLength = 128;
     self.clientCertView.dataModel = clientModel;
     
     self.bottomView.hidden = !_dataModel.sslIsOn;

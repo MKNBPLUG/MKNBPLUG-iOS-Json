@@ -327,10 +327,10 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
         if (!ValidStr(self.sslPort) || [self.sslPort integerValue] < 1 || [self.sslPort integerValue] > 65535) {
             return @"SSL Port error";
         }
-        if (!ValidStr(self.caFilePath) || self.caFilePath.length > 100) {
+        if (!ValidStr(self.caFilePath) || self.caFilePath.length > 128) {
             return @"CA File cannot be empty.";
         }
-        if (self.certificate == 1 && (!ValidStr(self.clientKeyPath) || self.clientKeyPath.length > 100 || !ValidStr(self.clientCertPath) || self.clientCertPath.length > 100)) {
+        if (self.certificate == 1 && (!ValidStr(self.clientKeyPath) || self.clientKeyPath.length > 128 || !ValidStr(self.clientCertPath) || self.clientCertPath.length > 128)) {
             return @"Client File cannot be empty.";
         }
     }

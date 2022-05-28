@@ -274,9 +274,9 @@ MKTextFieldCellDelegate>
     MKTextFieldCellModel *cellModel3 = [[MKTextFieldCellModel alloc] init];
     cellModel3.index = 2;
     cellModel3.msg = @"File Path";
-    cellModel3.textPlaceholder = @"1-100 Characters";
+    cellModel3.textPlaceholder = @"1-128 Characters";
     cellModel3.textFieldType = mk_normal;
-    cellModel3.maxLength = 100;
+    cellModel3.maxLength = 128;
     [self.firmwareList addObject:cellModel3];
 }
 
@@ -300,9 +300,9 @@ MKTextFieldCellDelegate>
     MKTextFieldCellModel *cellModel3 = [[MKTextFieldCellModel alloc] init];
     cellModel3.index = 5;
     cellModel3.msg = @"CA File Path";
-    cellModel3.textPlaceholder = @"1-100 Characters";
+    cellModel3.textPlaceholder = @"1-128 Characters";
     cellModel3.textFieldType = mk_normal;
-    cellModel3.maxLength = 100;
+    cellModel3.maxLength = 128;
     [self.caCertificateList addObject:cellModel3];
 }
 
@@ -326,25 +326,25 @@ MKTextFieldCellDelegate>
     MKTextFieldCellModel *cellModel3 = [[MKTextFieldCellModel alloc] init];
     cellModel3.index = 8;
     cellModel3.msg = @"CA File Path";
-    cellModel3.textPlaceholder = @"1-100 Characters";
+    cellModel3.textPlaceholder = @"1-128 Characters";
     cellModel3.textFieldType = mk_normal;
-    cellModel3.maxLength = 100;
+    cellModel3.maxLength = 128;
     [self.signedCertificateList addObject:cellModel3];
     
     MKTextFieldCellModel *cellModel4 = [[MKTextFieldCellModel alloc] init];
     cellModel4.index = 9;
     cellModel4.msg = @"Client Key file";
-    cellModel4.textPlaceholder = @"1-100 Characters";
+    cellModel4.textPlaceholder = @"1-128 Characters";
     cellModel4.textFieldType = mk_normal;
-    cellModel4.maxLength = 100;
+    cellModel4.maxLength = 128;
     [self.signedCertificateList addObject:cellModel4];
     
     MKTextFieldCellModel *cellModel5 = [[MKTextFieldCellModel alloc] init];
     cellModel5.index = 10;
     cellModel5.msg = @"Client Cert file";
-    cellModel5.textPlaceholder = @"1-100 Characters";
+    cellModel5.textPlaceholder = @"1-128 Characters";
     cellModel5.textFieldType = mk_normal;
-    cellModel5.maxLength = 100;
+    cellModel5.maxLength = 128;
     [self.signedCertificateList addObject:cellModel5];
 }
 

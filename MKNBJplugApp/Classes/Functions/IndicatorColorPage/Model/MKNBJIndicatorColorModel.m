@@ -126,7 +126,7 @@
         }else if (self.productModel == mk_nbj_productModel_UK) {
             maxValue = 3588;
         }
-        if (self.b_color < 1 || self.b_color > (maxValue - 5)) {
+        if (self.b_color < 2 || self.b_color > (maxValue - 5)) {
             return NO;
         }
         if (self.g_color <= self.b_color || self.g_color > (maxValue - 4)) {
