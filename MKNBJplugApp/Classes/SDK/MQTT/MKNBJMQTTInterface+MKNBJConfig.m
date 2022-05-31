@@ -1291,10 +1291,10 @@
     if (protocol.keepAlive < 10 || protocol.keepAlive > 120) {
         return NO;
     }
-    if (protocol.mqtt_userName.length > 256 || (ValidStr(protocol.mqtt_userName) && ![protocol.mqtt_userName isAsciiString])) {
+    if (protocol.mqtt_userName.length > 128 || (ValidStr(protocol.mqtt_userName) && ![protocol.mqtt_userName isAsciiString])) {
         return NO;
     }
-    if (protocol.mqtt_password.length > 256 || (ValidStr(protocol.mqtt_password) && ![protocol.mqtt_password isAsciiString])) {
+    if (protocol.mqtt_password.length > 128 || (ValidStr(protocol.mqtt_password) && ![protocol.mqtt_password isAsciiString])) {
         return NO;
     }
     if (protocol.connect_mode < 0 || protocol.connect_mode > 3) {

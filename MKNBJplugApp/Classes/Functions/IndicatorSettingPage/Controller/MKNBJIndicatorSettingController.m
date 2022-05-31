@@ -275,7 +275,7 @@ MKTextButtonCellDelegate>
     }
     
     MKTableSectionLineHeaderModel *headerModel1 = self.headerList[0];
-    headerModel1.text = @"Top Indicator (Indicates Neowork status)";
+    headerModel1.text = @"Top Indicator (Indicates Network status)";
     MKTableSectionLineHeaderModel *headerModel2 = self.headerList[2];
     headerModel2.text = @"Bottom Indicator (Indicates switch status)";
     

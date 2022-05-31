@@ -218,6 +218,11 @@ static dispatch_once_t onceToken;
 
 - (void)sessionManager:(MQTTSessionManager *)sessionManager didChangeState:(MKMQTTSessionManagerState)newState {
     self.state = newState;
+    if (newState != MKMQTTSessionManagerStateConnected) {
+        if (self.operationQueue.operations.count > 0) {
+            [self.operationQueue cancelAllOperations];
+        }
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:MKNBJMQTTSessionManagerStateChangedNotification object:nil];
 }
 
@@ -254,6 +259,9 @@ static dispatch_once_t onceToken;
 }
 
 - (void)disconnect {
+    if (self.operationQueue.operations.count > 0) {
+        [self.operationQueue cancelAllOperations];
+    }
     [[MKMQTTServerManager shared] disconnect];
 }
 

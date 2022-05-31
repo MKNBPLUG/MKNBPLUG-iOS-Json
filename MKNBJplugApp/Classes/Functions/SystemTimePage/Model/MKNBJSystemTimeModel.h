@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
               sucBlock:(void (^)(void))sucBlock
            failedBlock:(void (^)(NSError *error))failedBlock;
 
+- (void)configUTCTimeWithSucBlock:(void (^)(void))sucBlock
+                      failedBlock:(void (^)(NSError *error))failedBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -120,7 +120,7 @@
     }
     [self.dataList removeAllObjects];
     NSArray *tempList = dic[@"energyList"];
-    NSString *number = dic[@"number"];
+    NSString *number = [NSString stringWithFormat:@"%ld",(long)([dic[@"number"] integerValue] - 1)];
     NSString *time = [NSString stringWithFormat:@"00:00 to %@:00",(number.length == 1 ? [@"0" stringByAppendingString:number] : number)];
     self.timeLabel.text = [NSString stringWithFormat:@"%@,%@-%@",time,SafeStr(dic[@"month"]),SafeStr(dic[@"day"])];
     float totalValue = 0;

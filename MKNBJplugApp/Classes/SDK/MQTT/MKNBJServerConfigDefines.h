@@ -131,10 +131,10 @@ typedef NS_ENUM(NSInteger, mk_nbj_mqtt_networkPriority) {
 /// 10s~120s
 @property (nonatomic, assign)NSInteger keepAlive;
 
-/// 0-256 Characters
+/// 0-128 Characters
 @property (nonatomic, copy)NSString *mqtt_userName;
 
-/// 0-256 Characters
+/// 0-128 Characters
 @property (nonatomic, copy)NSString *mqtt_password;
 
 /// 0:TCP    1:CA signed server certificate     2:CA certificate     3:Self signed certificates

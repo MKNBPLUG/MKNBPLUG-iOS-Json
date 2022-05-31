@@ -38,7 +38,7 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
         _keepAlive = @"60";
         _qos = 1;
         _lwtQos = 1;
-        _lwtTopic = defaultSubTopic;
+        _lwtTopic = defaultPubTopic;
         _lwtPayload = @"Offline";
         _timeZone = 24;
     }
@@ -593,9 +593,9 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
 - (BOOL)configLWTTopic {
     __block BOOL success = NO;
     NSString *topic = @"";
-    if ([self.lwtTopic isEqualToString:defaultSubTopic]) {
+    if ([self.lwtTopic isEqualToString:defaultPubTopic]) {
         //用户使用默认的LWT topic
-        topic = [NSString stringWithFormat:@"%@/%@/%@",self.deviceName,self.deviceID,@"app_to_device"];
+        topic = [NSString stringWithFormat:@"%@/%@/%@",self.deviceName,self.deviceID,@"device_to_app"];
     }else {
         //用户修改了LWT topic
         topic = self.lwtTopic;

@@ -131,7 +131,7 @@ MKTextButtonCellDelegate>
 
 #pragma mark - MKNBJSystemTimeCellDelegate
 - (void)nbj_systemTimeButtonPressed:(NSInteger)index {
-    [self syncTimeZoneToDevice:self.dataModel.timezone];
+    [self syncUTCTime];
 }
 
 #pragma mark - MKTextButtonCellDelegate
@@ -166,16 +166,29 @@ MKTextButtonCellDelegate>
     @weakify(self);
     [self.dataModel configTimezone:timeZone sucBlock:^ {
         @strongify(self);
+        [[MKHudManager share] hide];
         self.dataModel.timezone = timeZone;
         MKTextButtonCellModel *cellModel = self.section2List[0];
         cellModel.dataListIndex = self.dataModel.timezone;
-        [[MKHudManager share] hide];
         [self readDataFromServer];
     } failedBlock:^(NSError * _Nonnull error) {
         @strongify(self);
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
         [self.tableView reloadData];
+    }];
+}
+
+- (void)syncUTCTime {
+    [[MKHudManager share] showHUDWithTitle:@"Config..." inView:self.view isPenetration:NO];
+    @weakify(self);
+    [self.dataModel configUTCTimeWithSucBlock:^{
+        [[MKHudManager share] hide];
+        [self readDataFromServer];
+    } failedBlock:^(NSError * _Nonnull error) {
+        @strongify(self);
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
 }
 
@@ -191,7 +204,7 @@ MKTextButtonCellDelegate>
     @weakify(self);
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.readTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(self.readTimer, dispatch_walltime(NULL, 0), 30 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(self.readTimer, dispatch_walltime(NULL, 0), 60 * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(self.readTimer, ^{
         @strongify(self);
         moko_dispatch_main_safe(^{

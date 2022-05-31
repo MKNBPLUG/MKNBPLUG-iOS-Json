@@ -286,7 +286,7 @@ mk_nbj_centralManagerScanDelegate>
     [[MKNBJCentralManager shared] connectPeripheral:deviecModel.peripheral sucBlock:^(CBPeripheral * _Nonnull peripheral) {
         [[MKHudManager share] hide];
         self.rightButton.selected = NO;
-        [self pushLogController];
+        [self pushLogController:deviecModel.macAddress];
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKNBJCentralManager shared] disconnect];
         [[MKHudManager share] hide];
@@ -300,8 +300,9 @@ mk_nbj_centralManagerScanDelegate>
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)pushLogController {
+- (void)pushLogController:(NSString *)macAddress {
     MKNBJDebuggerController *vc = [[MKNBJDebuggerController alloc] init];
+    vc.macAddress = macAddress;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

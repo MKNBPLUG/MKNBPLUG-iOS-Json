@@ -48,21 +48,21 @@
 - (void)configTimezone:(NSInteger)timezone
               sucBlock:(void (^)(void))sucBlock
            failedBlock:(void (^)(NSError *error))failedBlock {
-    dispatch_async(self.readQueue, ^{
-        if (![self configTimezone:(timezone - 24)]) {
-            [self operationFailedBlockWithMsg:@"Config Timezone Timeout" block:failedBlock];
-            return;
+    [MKNBJMQTTInterface nbj_configDeviceTimeZone:(timezone - 24) deviceID:[MKNBJDeviceModeManager shared].deviceID macAddress:[MKNBJDeviceModeManager shared].macAddress topic:[MKNBJDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+        if (sucBlock) {
+            sucBlock();
         }
-        if (![self configUTCTime]) {
-            [self operationFailedBlockWithMsg:@"Config UTC Time Timeout" block:failedBlock];
-            return;
+    } failedBlock:failedBlock];
+}
+
+- (void)configUTCTimeWithSucBlock:(void (^)(void))sucBlock
+                      failedBlock:(void (^)(NSError *error))failedBlock {
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    [MKNBJMQTTInterface nbj_configDeviceUTCTime:timeInterval deviceID:[MKNBJDeviceModeManager shared].deviceID macAddress:[MKNBJDeviceModeManager shared].macAddress topic:[MKNBJDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
+        if (sucBlock) {
+            sucBlock();
         }
-        moko_dispatch_main_safe(^{
-            if (sucBlock) {
-                sucBlock();
-            }
-        });
-    });
+    } failedBlock:failedBlock];
 }
 
 #pragma mark - interfae
@@ -71,18 +71,6 @@
     [MKNBJMQTTInterface nbj_readTimeZoneWithDeviceID:[MKNBJDeviceModeManager shared].deviceID macAddress:[MKNBJDeviceModeManager shared].macAddress topic:[MKNBJDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         self.timezone = [returnData[@"data"][@"time_zone"] integerValue] + 24;
-        dispatch_semaphore_signal(self.semaphore);
-    } failedBlock:^(NSError * _Nonnull error) {
-        dispatch_semaphore_signal(self.semaphore);
-    }];
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
-    return success;
-}
-
-- (BOOL)configTimezone:(NSInteger)timezone {
-    __block BOOL success = NO;
-    [MKNBJMQTTInterface nbj_configDeviceTimeZone:timezone deviceID:[MKNBJDeviceModeManager shared].deviceID macAddress:[MKNBJDeviceModeManager shared].macAddress topic:[MKNBJDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
-        success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);
@@ -102,19 +90,6 @@
         NSString *timeString = [dateformatter stringFromDate:date];
                 
         self.currentTime = [NSString stringWithFormat:@"Device time:%@ %@",timeString,self.timeZoneList[self.timezone]];
-        dispatch_semaphore_signal(self.semaphore);
-    } failedBlock:^(NSError * _Nonnull error) {
-        dispatch_semaphore_signal(self.semaphore);
-    }];
-    dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER);
-    return success;
-}
-
-- (BOOL)configUTCTime {
-    __block BOOL success = NO;
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-    [MKNBJMQTTInterface nbj_configDeviceUTCTime:timeInterval deviceID:[MKNBJDeviceModeManager shared].deviceID macAddress:[MKNBJDeviceModeManager shared].macAddress topic:[MKNBJDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
-        success = YES;
         dispatch_semaphore_signal(self.semaphore);
     } failedBlock:^(NSError * _Nonnull error) {
         dispatch_semaphore_signal(self.semaphore);
