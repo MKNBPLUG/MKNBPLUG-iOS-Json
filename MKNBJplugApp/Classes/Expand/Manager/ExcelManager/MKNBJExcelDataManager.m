@@ -22,10 +22,14 @@ static NSString *const defaultKeyValueString = @"value:";
 + (void)exportAppExcel:(id <MKNBJExcelAppProtocol>)protocol
               sucBlock:(void(^)(void))sucBlock
            failedBlock:(void(^)(NSError *error))failedBlock {
-    if (![self checkExcelAppProtocol:protocol]) {
+    if (!protocol || ![protocol conformsToProtocol:@protocol(MKNBJExcelAppProtocol)]) {
         [self operationFailedBlockWithMsg:@"Params Error" block:failedBlock];
         return;
     }
+//    if (![self checkExcelAppProtocol:protocol]) {
+//        [self operationFailedBlockWithMsg:@"Params Error" block:failedBlock];
+//        return;
+//    }
     //设置excel文件名和路径
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *path = [documentPath stringByAppendingPathComponent:@"Settings for APP.xlsx"];
@@ -68,37 +72,31 @@ static NSString *const defaultKeyValueString = @"value:";
     
     //Host
     worksheet_write_string(worksheet, 1, 0, "Host", NULL);
-    NSString *hostString = [defaultKeyValueString stringByAppendingString:protocol.host];
+    NSString *hostString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.host)];
     worksheet_write_string(worksheet, 1, 1, [hostString UTF8String], NULL);
     worksheet_write_string(worksheet, 1, 2, "1-64 characters", NULL);
     
     //Port
     worksheet_write_string(worksheet, 2, 0, "Port", NULL);
-    NSString *portString = [defaultKeyValueString stringByAppendingString:protocol.port];
+    NSString *portString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.port)];
     worksheet_write_string(worksheet, 2, 1, [portString UTF8String], NULL);
     worksheet_write_string(worksheet, 2, 2, "Range: 1-65535", NULL);
     
     //Client id
     worksheet_write_string(worksheet, 3, 0, "Client id", NULL);
-    NSString *clientIDString = [defaultKeyValueString stringByAppendingString:protocol.clientID];
+    NSString *clientIDString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.clientID)];
     worksheet_write_string(worksheet, 3, 1, [clientIDString UTF8String], NULL);
     worksheet_write_string(worksheet, 3, 2, "1-64 characters", NULL);
     
     //Subscribe Topic
     worksheet_write_string(worksheet, 4, 0, "Subscribe Topic", NULL);
-    NSString *subscribeTopicString = @"";
-    if (ValidStr(protocol.subscribeTopic)) {
-        subscribeTopicString = [defaultKeyValueString stringByAppendingString:protocol.subscribeTopic];
-    }
+    NSString *subscribeTopicString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.subscribeTopic)];
     worksheet_write_string(worksheet, 4, 1, [subscribeTopicString UTF8String], NULL);
     worksheet_write_string(worksheet, 4, 2, "0-128 characters", NULL);
     
     //Publish Topic
     worksheet_write_string(worksheet, 5, 0, "Publish Topic", NULL);
-    NSString *publishTopicString = @"";
-    if (ValidStr(protocol.publishTopic)) {
-        publishTopicString = [defaultKeyValueString stringByAppendingString:protocol.publishTopic];
-    }
+    NSString *publishTopicString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.publishTopic)];
     worksheet_write_string(worksheet, 5, 1, [publishTopicString UTF8String], NULL);
     worksheet_write_string(worksheet, 5, 2, "0-128 characters", NULL);
     
@@ -121,25 +119,19 @@ static NSString *const defaultKeyValueString = @"value:";
     
     //Keep Alive
     worksheet_write_string(worksheet, 8, 0, "Keep Alive", NULL);
-    NSString *keepString = [defaultKeyValueString stringByAppendingString:protocol.keepAlive];
+    NSString *keepString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.keepAlive)];
     worksheet_write_string(worksheet, 8, 1, [keepString UTF8String], NULL);
     worksheet_write_string(worksheet, 8, 2, "Range: 10-120, unit: second", NULL);
     
     //MQTT Username
     worksheet_write_string(worksheet, 9, 0, "MQTT Username", NULL);
-    NSString *usernameString = @"";
-    if (ValidStr(protocol.userName)) {
-        usernameString = [defaultKeyValueString stringByAppendingString:protocol.userName];
-    }
+    NSString *usernameString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.userName)];
     worksheet_write_string(worksheet, 9, 1, [usernameString UTF8String], NULL);
     worksheet_write_string(worksheet, 9, 2, "0-128 characters", NULL);
     
     //MQTT Password
     worksheet_write_string(worksheet, 10, 0, "MQTT Password", NULL);
-    NSString *passwordString = @"";
-    if (ValidStr(protocol.password)) {
-        passwordString = [defaultKeyValueString stringByAppendingString:protocol.password];
-    }
+    NSString *passwordString = [defaultKeyValueString stringByAppendingString:protocol.password];
     worksheet_write_string(worksheet, 10, 1, [passwordString UTF8String], NULL);
     worksheet_write_string(worksheet, 10, 2, "0-128 characters", NULL);
     
@@ -289,10 +281,14 @@ static NSString *const defaultKeyValueString = @"value:";
 + (void)exportDeviceExcel:(id <MKNBJExcelDeviceProtocol>)protocol
                  sucBlock:(void(^)(void))sucBlock
               failedBlock:(void(^)(NSError *error))failedBlock {
-    if (![self checkExcelDeviceProtocol:protocol]) {
+    if (!protocol || ![protocol conformsToProtocol:@protocol(MKNBJExcelDeviceProtocol)]) {
         [self operationFailedBlockWithMsg:@"Params Error" block:failedBlock];
         return;
     }
+//    if (![self checkExcelDeviceProtocol:protocol]) {
+//        [self operationFailedBlockWithMsg:@"Params Error" block:failedBlock];
+//        return;
+//    }
     //设置excel文件名和路径
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString *path = [documentPath stringByAppendingPathComponent:@"Settings for device.xlsx"];
@@ -335,19 +331,19 @@ static NSString *const defaultKeyValueString = @"value:";
     
     //Host
     worksheet_write_string(worksheet, 1, 0, "Host", NULL);
-    NSString *hostString = [defaultKeyValueString stringByAppendingString:protocol.host];
+    NSString *hostString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.host)];
     worksheet_write_string(worksheet, 1, 1, [hostString UTF8String], NULL);
     worksheet_write_string(worksheet, 1, 2, "1-64 characters", NULL);
     
     //Port
     worksheet_write_string(worksheet, 2, 0, "Port", NULL);
-    NSString *portString = [defaultKeyValueString stringByAppendingString:protocol.port];
+    NSString *portString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.port)];
     worksheet_write_string(worksheet, 2, 1, [portString UTF8String], NULL);
     worksheet_write_string(worksheet, 2, 2, "Range: 1-65535", NULL);
     
     //Client id
     worksheet_write_string(worksheet, 3, 0, "Client id", NULL);
-    NSString *clientIDString = [defaultKeyValueString stringByAppendingString:protocol.clientID];
+    NSString *clientIDString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.clientID)];
     worksheet_write_string(worksheet, 3, 1, [clientIDString UTF8String], NULL);
     worksheet_write_string(worksheet, 3, 2, "1-64 characters", NULL);
     
@@ -382,7 +378,7 @@ static NSString *const defaultKeyValueString = @"value:";
     
     //Keep Alive
     worksheet_write_string(worksheet, 8, 0, "Keep Alive", NULL);
-    NSString *keepString = [defaultKeyValueString stringByAppendingString:protocol.keepAlive];
+    NSString *keepString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.keepAlive)];
     worksheet_write_string(worksheet, 8, 1, [keepString UTF8String], NULL);
     worksheet_write_string(worksheet, 8, 2, "Range: 10-120, unit: second", NULL);
     
@@ -390,7 +386,7 @@ static NSString *const defaultKeyValueString = @"value:";
     worksheet_write_string(worksheet, 9, 0, "MQTT Username", NULL);
     NSString *usernameString = @"";
     if (ValidStr(protocol.userName)) {
-        usernameString = [defaultKeyValueString stringByAppendingString:protocol.userName];
+        usernameString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.userName)];
     }
     worksheet_write_string(worksheet, 9, 1, [usernameString UTF8String], NULL);
     worksheet_write_string(worksheet, 9, 2, "0-128 characters", NULL);
@@ -399,7 +395,7 @@ static NSString *const defaultKeyValueString = @"value:";
     worksheet_write_string(worksheet, 10, 0, "MQTT Password", NULL);
     NSString *passwordString = @"";
     if (ValidStr(protocol.password)) {
-        passwordString = [defaultKeyValueString stringByAppendingString:protocol.password];
+        passwordString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.password)];
     }
     worksheet_write_string(worksheet, 10, 1, [passwordString UTF8String], NULL);
     worksheet_write_string(worksheet, 10, 2, "0-128 characters", NULL);
@@ -451,20 +447,14 @@ static NSString *const defaultKeyValueString = @"value:";
     //LWT Topic
     const char *lwtTopicMsg = "1-128 characters (When LWT is enabled) ";
     worksheet_write_string(worksheet, 16, 0, "LWT Topic", NULL);
-    NSString *lwtTopicString = @"";
-    if (ValidStr(protocol.lwtTopic)) {
-        lwtTopicString = [defaultKeyValueString stringByAppendingString:protocol.lwtTopic];
-    }
+    NSString *lwtTopicString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.lwtTopic)];
     worksheet_write_string(worksheet, 16, 1, [lwtTopicString UTF8String], NULL);
     worksheet_write_string(worksheet, 16, 2, lwtTopicMsg, format);
     
     //LWT Payload
     const char *lwtPayloadMsg = "1-128 characters (When LWT is enabled) ";
     worksheet_write_string(worksheet, 17, 0, "LWT Payload", NULL);
-    NSString *lwtPayloadString = @"";
-    if (ValidStr(protocol.lwtPayload)) {
-        lwtPayloadString = [defaultKeyValueString stringByAppendingString:protocol.lwtPayload];
-    }
+    NSString *lwtPayloadString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.lwtPayload)];
     worksheet_write_string(worksheet, 17, 1, [lwtPayloadString UTF8String], NULL);
     worksheet_write_string(worksheet, 17, 2, lwtPayloadMsg, format);
     
@@ -478,10 +468,7 @@ static NSString *const defaultKeyValueString = @"value:";
     //NTP URL
     const char *ntpMsg = "0-64 characters";
     worksheet_write_string(worksheet, 19, 0, "NTP URL", NULL);
-    NSString *ntpString = @"";
-    if (ValidStr(protocol.ntpHost)) {
-        ntpString = [defaultKeyValueString stringByAppendingString:protocol.ntpHost];
-    }
+    NSString *ntpString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.ntpHost)];
     worksheet_write_string(worksheet, 19, 1, [ntpString UTF8String], NULL);
     worksheet_write_string(worksheet, 19, 2, ntpMsg, format);
     
@@ -495,30 +482,21 @@ static NSString *const defaultKeyValueString = @"value:";
     //APN URL
     const char *apnMsg = "0-100 characters";
     worksheet_write_string(worksheet, 21, 0, "APN", NULL);
-    NSString *apnString = @"";
-    if (ValidStr(protocol.apn)) {
-        apnString = [defaultKeyValueString stringByAppendingString:protocol.apn];
-    }
+    NSString *apnString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.apn)];
     worksheet_write_string(worksheet, 21, 1, [apnString UTF8String], NULL);
     worksheet_write_string(worksheet, 21, 2, apnMsg, format);
     
     //APN Username
     const char *apnUsernameMsg = "0-127 characters";
     worksheet_write_string(worksheet, 22, 0, "APN Username", NULL);
-    NSString *apnUsernameString = @"";
-    if (ValidStr(protocol.networkUsername)) {
-        apnUsernameString = [defaultKeyValueString stringByAppendingString:protocol.networkUsername];
-    }
+    NSString *apnUsernameString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.networkUsername)];
     worksheet_write_string(worksheet, 22, 1, [apnUsernameString UTF8String], NULL);
     worksheet_write_string(worksheet, 22, 2, apnUsernameMsg, format);
     
     //APN Password
     const char *apnPasswordMsg = "0-127 characters";
     worksheet_write_string(worksheet, 23, 0, "APN Password", NULL);
-    NSString *apnPasswordString = @"";
-    if (ValidStr(protocol.networkPassword)) {
-        apnPasswordString = [defaultKeyValueString stringByAppendingString:protocol.networkPassword];
-    }
+    NSString *apnPasswordString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.networkPassword)];
     worksheet_write_string(worksheet, 23, 1, [apnPasswordString UTF8String], NULL);
     worksheet_write_string(worksheet, 23, 2, apnPasswordMsg, format);
     

@@ -48,6 +48,8 @@ MKTextButtonCellDelegate>
 
 @property (nonatomic, strong)MKNBJSystemTimeModel *dataModel;
 
+@property (nonatomic, assign)NSInteger timerCount;
+
 @end
 
 @implementation MKNBJSystemTimeController
@@ -63,7 +65,7 @@ MKTextButtonCellDelegate>
     [super viewDidLoad];
     [self loadSubViews];
     [self loadSectionDatas];
-    [self startReceiveTimer];
+    [self readDataFromServer:YES];
 }
 
 #pragma mark - UITableViewDelegate
@@ -150,11 +152,15 @@ MKTextButtonCellDelegate>
 }
 
 #pragma mark - interface
-- (void)readDataFromServer {
+- (void)readDataFromServer:(BOOL)addTimer {
     [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
     [self.dataModel readDataWithSucBlock:^{
         [[MKHudManager share] hide];
         [self updateCellData];
+        self.timerCount = 0;
+        if (addTimer) {
+            [self startReceiveTimer];
+        }
     } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
@@ -170,7 +176,7 @@ MKTextButtonCellDelegate>
         self.dataModel.timezone = timeZone;
         MKTextButtonCellModel *cellModel = self.section2List[0];
         cellModel.dataListIndex = self.dataModel.timezone;
-        [self readDataFromServer];
+        [self readDataFromServer:NO];
     } failedBlock:^(NSError * _Nonnull error) {
         @strongify(self);
         [[MKHudManager share] hide];
@@ -184,9 +190,20 @@ MKTextButtonCellDelegate>
     @weakify(self);
     [self.dataModel configUTCTimeWithSucBlock:^{
         [[MKHudManager share] hide];
-        [self readDataFromServer];
+        [self readDataFromServer:NO];
     } failedBlock:^(NSError * _Nonnull error) {
         @strongify(self);
+        [[MKHudManager share] hide];
+        [self.view showCentralToast:error.userInfo[@"errorInfo"]];
+    }];
+}
+
+- (void)timerRead {
+    [[MKHudManager share] showHUDWithTitle:@"Reading..." inView:self.view isPenetration:NO];
+    [self.dataModel readDataWithSucBlock:^{
+        [[MKHudManager share] hide];
+        [self updateCellData];
+    } failedBlock:^(NSError * _Nonnull error) {
         [[MKHudManager share] hide];
         [self.view showCentralToast:error.userInfo[@"errorInfo"]];
     }];
@@ -204,12 +221,16 @@ MKTextButtonCellDelegate>
     @weakify(self);
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     self.readTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(self.readTimer, dispatch_walltime(NULL, 0), 60 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(self.readTimer, dispatch_walltime(NULL, 0), 1 * NSEC_PER_SEC, 0);
     dispatch_source_set_event_handler(self.readTimer, ^{
         @strongify(self);
-        moko_dispatch_main_safe(^{
-            [self readDataFromServer];
-        });
+        self.timerCount ++;
+        if (self.timerCount >= 60) {
+            self.timerCount = 0;
+            moko_dispatch_main_safe(^{
+                [self timerRead];
+            });
+        }
     });
     dispatch_resume(self.readTimer);
 }

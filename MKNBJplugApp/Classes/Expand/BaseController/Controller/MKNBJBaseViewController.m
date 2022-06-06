@@ -80,7 +80,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_nbj_needDismissAlert" object:nil];
     //让所有MKPickView消失
     [[NSNotificationCenter defaultCenter] postNotificationName:@"mk_customUIModule_dismissPickView" object:nil];
-    [self performSelector:@selector(leftButtonMethod) withObject:nil afterDelay:0.5f];
+    [self performSelector:@selector(backToSwitchPage) withObject:nil afterDelay:0.5f];
 }
 
 - (void)backToSwitchPage {

@@ -471,7 +471,7 @@ static CGFloat const buttonViewHeight = 50.f;
         _stateLabel.textColor = UIColorFromRGB(0x0188cc);
         _stateLabel.textAlignment = NSTextAlignmentCenter;
         _stateLabel.font = MKFont(15.f);
-        _stateLabel.text = @"Socket is on";
+//        _stateLabel.text = @"Socket is on";
         _stateLabel.numberOfLines = 0;
     }
     return _stateLabel;

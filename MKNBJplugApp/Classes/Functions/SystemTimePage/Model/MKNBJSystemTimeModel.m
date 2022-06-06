@@ -23,6 +23,8 @@
 
 @property (nonatomic, strong)NSArray *timeZoneList;
 
+@property (nonatomic, strong)NSArray *timeZoneValueList;
+
 @end
 
 @implementation MKNBJSystemTimeModel
@@ -84,10 +86,15 @@
     [MKNBJMQTTInterface nbj_readDeviceUTCTimeWithDeviceID:[MKNBJDeviceModeManager shared].deviceID macAddress:[MKNBJDeviceModeManager shared].macAddress topic:[MKNBJDeviceModeManager shared].subscribedTopic sucBlock:^(id  _Nonnull returnData) {
         success = YES;
         long long timestamp = [returnData[@"data"][@"time"] integerValue];
-        NSDateFormatter *dateformatter = [[NSDateFormatter alloc] init];
-        [dateformatter setDateFormat: @"YYYY-MM-dd HH:mm"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateStyle:NSDateFormatterMediumStyle];
+        [formatter setDateFormat:@"YYYY-MM-dd HH:mm"];
+        NSNumber *timeZoneValue = self.timeZoneValueList[self.timezone];
+        NSInteger seconds = ([timeZoneValue integerValue] * 360);
+        NSTimeZone *tempZone = [NSTimeZone timeZoneForSecondsFromGMT:seconds];
+        [formatter setTimeZone:tempZone];
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:timestamp];
-        NSString *timeString = [dateformatter stringFromDate:date];
+        NSString *timeString = [formatter stringFromDate:date];
                 
         self.currentTime = [NSString stringWithFormat:@"Device time:%@ %@",timeString,self.timeZoneList[self.timezone]];
         dispatch_semaphore_signal(self.semaphore);
@@ -136,6 +143,21 @@
                           @"UTC+12:00",@"UTC+12:30",@"UTC+13:00",@"UTC+13:30",@"UTC+14:00"];
     }
     return _timeZoneList;
+}
+
+- (NSArray *)timeZoneValueList {
+    if (!_timeZoneValueList) {
+        _timeZoneValueList = @[@(-120),@(-115),@(-110),@(-105),@(-100),@(-95),
+                               @(-90),@(-85),@(-80),@(-75),@(-70),@(-65),
+                               @(-60),@(-55),@(-50),@(-45),@(-40),@(-35),
+                               @(-30),@(-25),@(-20),@(-15),@(-10),@(-5),
+                               @(0),@(5),@(10),@(15),@(20),@(25),
+                               @(30),@(35),@(40),@(45),@(50),@(55),
+                               @(60),@(65),@(70),@(75),@(80),@(85),
+                               @(90),@(95),@(100),@(105),@(110),@(115),
+                               @(120),@(125),@(130),@(135),@(140)];
+    }
+    return _timeZoneValueList;
 }
 
 @end

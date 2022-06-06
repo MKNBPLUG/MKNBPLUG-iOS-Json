@@ -414,11 +414,11 @@ MFMailComposeViewControllerDelegate>
 
 #pragma mark - private method
 - (void)exportServerConfig {
-    NSString *errorMsg = [self.dataModel checkParams];
-    if (ValidStr(errorMsg)) {
-        [self.view showCentralToast:errorMsg];
-        return;
-    }
+//    NSString *errorMsg = [self.dataModel checkParams];
+//    if (ValidStr(errorMsg)) {
+//        [self.view showCentralToast:errorMsg];
+//        return;
+//    }
     [[MKHudManager share] showHUDWithTitle:@"Waiting..." inView:self.view isPenetration:NO];
     [MKNBJExcelDataManager exportAppExcel:self.dataModel
                                  sucBlock:^{
