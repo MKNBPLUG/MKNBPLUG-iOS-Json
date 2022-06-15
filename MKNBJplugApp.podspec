@@ -105,6 +105,9 @@ TODO: Add long description of the pod here.
       sss.subspec 'UserCredentialsView' do |ssss|
         ssss.source_files = 'MKNBJplugApp/Classes/Expand/View/UserCredentialsView/**'
       end
+      sss.subspec 'AlertView' do |ssss|
+        ssss.source_files = 'MKNBJplugApp/Classes/Expand/View/AlertView/**'
+      end
     end
     
     

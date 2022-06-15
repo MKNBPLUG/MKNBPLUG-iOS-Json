@@ -581,6 +581,7 @@ MKNBJImportServerControllerDelegate>
             moko_dispatch_main_safe(^{
                 [self.progressView dismiss];
                 [self.view showCentralToast:@"Connect Failed!"];
+                [self performSelector:@selector(leftButtonMethod) withObject:nil afterDelay:0.5f];
             });
             return ;
         }
@@ -766,6 +767,7 @@ MKNBJImportServerControllerDelegate>
     self.sslParamsModel.networkPassword = self.dataModel.networkPassword;
     self.sslParamsModel.networkPriority = self.dataModel.networkPriority;
     self.sslParamsModel.debugMode = self.dataModel.debugMode;
+    self.sslParamsModel.ntpHost = self.dataModel.ntpHost;
     
     //动态布局底部footer
     [self setupSSLViewFrames];
@@ -872,7 +874,7 @@ MKNBJImportServerControllerDelegate>
 - (MKProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[MKProgressView alloc] initWithTitle:@"Connecting now!"
-                                                      message:@"Make sure your device is as close to your router as possible"];
+                                                      message:@" "];
     }
     return _progressView;
 }
