@@ -15,7 +15,7 @@
 
 #import "MKNormalTextCell.h"
 #import "MKHudManager.h"
-#import "MKAlertController.h"
+#import "MKAlertView.h"
 
 #import "MKNBJCentralManager.h"
 
@@ -103,18 +103,14 @@
 
 #pragma mark -
 - (void)showAlertWithMsg:(NSString *)msg {
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Update Firmware"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
     @weakify(self);
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
         @strongify(self);
         [self updateComplete];
     }];
+    MKAlertView *alertView = [[MKAlertView alloc] init];
     [alertView addAction:confirmAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    [alertView showAlertWithTitle:@"Update Firmware" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 - (void)updateComplete {

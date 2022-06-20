@@ -105,9 +105,6 @@ TODO: Add long description of the pod here.
       sss.subspec 'UserCredentialsView' do |ssss|
         ssss.source_files = 'MKNBJplugApp/Classes/Expand/View/UserCredentialsView/**'
       end
-      sss.subspec 'AlertView' do |ssss|
-        ssss.source_files = 'MKNBJplugApp/Classes/Expand/View/AlertView/**'
-      end
     end
     
     
@@ -180,10 +177,15 @@ TODO: Add long description of the pod here.
         ssss.source_files = 'MKNBJplugApp/Classes/Functions/DeviceListPage/Controller/**'
       
         ssss.dependency 'MKNBJplugApp/Functions/DeviceListPage/View'
+        ssss.dependency 'MKNBJplugApp/Functions/DeviceListPage/Model'
       
         ssss.dependency 'MKNBJplugApp/Functions/ServerForApp/Controller'
         ssss.dependency 'MKNBJplugApp/Functions/ScanPage/Controller'
         ssss.dependency 'MKNBJplugApp/Functions/SwitchStatePage/Controller'
+      end
+      
+      sss.subspec 'Model' do |ssss|
+        ssss.source_files = 'MKNBJplugApp/Classes/Functions/DeviceListPage/Model/**'
       end
     
       sss.subspec 'View' do |ssss|

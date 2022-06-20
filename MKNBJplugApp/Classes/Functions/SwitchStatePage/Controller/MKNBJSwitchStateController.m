@@ -14,7 +14,8 @@
 #import "UIView+MKAdd.h"
 
 #import "MKHudManager.h"
-#import "MKAlertController.h"
+
+#import "MKAlertView.h"
 
 #import "MKNBJDeviceModeManager.h"
 
@@ -249,22 +250,20 @@ static CGFloat const buttonViewHeight = 50.f;
     }else if (self.overType == 3) {
         msg = @"Detect the socket undervoltage, please confirm whether to exit the undervoltage status?";
     }
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Warning"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    @weakify(self);
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"NO" handler:^{
+        @strongify(self);
         [self popToViewControllerWithClassName:@"MKNBJDeviceListController"];
     }];
-    [alertView addAction:cancelAction];
-    @weakify(self);
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
-        [self performSelector:@selector(presentDismissOverAlert) withObject:nil afterDelay:0.8f];
-    }];
-    [alertView addAction:moreAction];
     
-    [self presentViewController:alertView animated:YES completion:nil];
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"YES" handler:^{
+        @strongify(self);
+        [self performSelector:@selector(presentDismissOverAlert) withObject:nil afterDelay:0.4f];
+    }];
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"Warning" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 /// 过载、过流、过压、欠压状态推出二级的弹窗
@@ -277,16 +276,14 @@ static CGFloat const buttonViewHeight = 50.f;
     }else if (self.overType == 3) {
         msg = @"If YES, the socket will exit undervoltage status, and please make sure it is within the protection threshold. If NO, you need manually reboot it to exit this status.";
     }
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Warning"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    
+    @weakify(self);
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"NO" handler:^{
+        @strongify(self);
         [self popToViewControllerWithClassName:@"MKNBJDeviceListController"];
     }];
-    [alertView addAction:cancelAction];
-    @weakify(self);
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"YES" handler:^{
         @strongify(self);
         if (self.overType == 0) {
             [self clearOverload];
@@ -305,9 +302,10 @@ static CGFloat const buttonViewHeight = 50.f;
             return;
         }
     }];
-    [alertView addAction:moreAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"Warning" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 #pragma mark - Private method

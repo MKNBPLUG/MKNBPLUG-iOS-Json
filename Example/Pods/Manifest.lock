@@ -15,6 +15,7 @@ PODS:
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
   - CircleProgressBar (0.32)
+  - CTMediator (46)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -25,44 +26,44 @@ PODS:
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
   - MJRefresh (3.7.5)
-  - MKBaseBleModule (1.1.1)
-  - MKBaseModuleLibrary (1.1.4):
-    - MKBaseModuleLibrary/Base (= 1.1.4)
-    - MKBaseModuleLibrary/Category (= 1.1.4)
-    - MKBaseModuleLibrary/Defines (= 1.1.4)
-    - MKBaseModuleLibrary/Tools (= 1.1.4)
-  - MKBaseModuleLibrary/Base (1.1.4):
-    - MKBaseModuleLibrary/Base/Cell (= 1.1.4)
-    - MKBaseModuleLibrary/Base/Controller (= 1.1.4)
-    - MKBaseModuleLibrary/Base/NavigationController (= 1.1.4)
-    - MKBaseModuleLibrary/Base/View (= 1.1.4)
-  - MKBaseModuleLibrary/Base/Cell (1.1.4):
-    - MKBaseModuleLibrary/Base/Cell/MKBaseCell (= 1.1.4)
-  - MKBaseModuleLibrary/Base/Cell/MKBaseCell (1.1.4):
+  - MKBaseBleModule (1.1.2)
+  - MKBaseModuleLibrary (1.1.5):
+    - MKBaseModuleLibrary/Base (= 1.1.5)
+    - MKBaseModuleLibrary/Category (= 1.1.5)
+    - MKBaseModuleLibrary/Defines (= 1.1.5)
+    - MKBaseModuleLibrary/Tools (= 1.1.5)
+  - MKBaseModuleLibrary/Base (1.1.5):
+    - MKBaseModuleLibrary/Base/Cell (= 1.1.5)
+    - MKBaseModuleLibrary/Base/Controller (= 1.1.5)
+    - MKBaseModuleLibrary/Base/NavigationController (= 1.1.5)
+    - MKBaseModuleLibrary/Base/View (= 1.1.5)
+  - MKBaseModuleLibrary/Base/Cell (1.1.5):
+    - MKBaseModuleLibrary/Base/Cell/MKBaseCell (= 1.1.5)
+  - MKBaseModuleLibrary/Base/Cell/MKBaseCell (1.1.5):
     - Masonry
     - MKBaseModuleLibrary/Defines
-  - MKBaseModuleLibrary/Base/Controller (1.1.4):
+  - MKBaseModuleLibrary/Base/Controller (1.1.5):
     - MKBaseModuleLibrary/Category
     - MKBaseModuleLibrary/Defines
     - WRNavigationBar
-  - MKBaseModuleLibrary/Base/NavigationController (1.1.4)
-  - MKBaseModuleLibrary/Base/View (1.1.4):
-    - MKBaseModuleLibrary/Base/View/CollectionView (= 1.1.4)
-    - MKBaseModuleLibrary/Base/View/TableView (= 1.1.4)
-  - MKBaseModuleLibrary/Base/View/CollectionView (1.1.4)
-  - MKBaseModuleLibrary/Base/View/TableView (1.1.4)
-  - MKBaseModuleLibrary/Category (1.1.4):
+  - MKBaseModuleLibrary/Base/NavigationController (1.1.5)
+  - MKBaseModuleLibrary/Base/View (1.1.5):
+    - MKBaseModuleLibrary/Base/View/CollectionView (= 1.1.5)
+    - MKBaseModuleLibrary/Base/View/TableView (= 1.1.5)
+  - MKBaseModuleLibrary/Base/View/CollectionView (1.1.5)
+  - MKBaseModuleLibrary/Base/View/TableView (1.1.5)
+  - MKBaseModuleLibrary/Category (1.1.5):
     - MKBaseModuleLibrary/Defines
     - MKBaseModuleLibrary/Tools/MKClassInfo
     - Toast
-  - MKBaseModuleLibrary/Defines (1.1.4)
-  - MKBaseModuleLibrary/Tools (1.1.4):
-    - MKBaseModuleLibrary/Tools/MKClassInfo (= 1.1.4)
-    - MKBaseModuleLibrary/Tools/MKDateFormatter (= 1.1.4)
-    - MKBaseModuleLibrary/Tools/MKModuleManager (= 1.1.4)
-  - MKBaseModuleLibrary/Tools/MKClassInfo (1.1.4)
-  - MKBaseModuleLibrary/Tools/MKDateFormatter (1.1.4)
-  - MKBaseModuleLibrary/Tools/MKModuleManager (1.1.4)
+  - MKBaseModuleLibrary/Defines (1.1.5)
+  - MKBaseModuleLibrary/Tools (1.1.5):
+    - MKBaseModuleLibrary/Tools/MKClassInfo (= 1.1.5)
+    - MKBaseModuleLibrary/Tools/MKDateFormatter (= 1.1.5)
+    - MKBaseModuleLibrary/Tools/MKModuleManager (= 1.1.5)
+  - MKBaseModuleLibrary/Tools/MKClassInfo (1.1.5)
+  - MKBaseModuleLibrary/Tools/MKDateFormatter (1.1.5)
+  - MKBaseModuleLibrary/Tools/MKModuleManager (1.1.5)
   - MKBaseMQTTModule (0.0.2):
     - MKBaseMQTTModule/MQTT (= 0.0.2)
     - MKBaseMQTTModule/NetworkManager (= 0.0.2)
@@ -70,47 +71,47 @@ PODS:
     - MQTTClient
   - MKBaseMQTTModule/NetworkManager (0.0.2):
     - AFNetworking
-  - MKCustomUIModule (1.4.0):
+  - MKCustomUIModule (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell (= 1.4.0)
-    - MKCustomUIModule/Controller (= 1.4.0)
-    - MKCustomUIModule/MQTTServerView (= 1.4.0)
-    - MKCustomUIModule/UIAdopter (= 1.4.0)
-    - MKCustomUIModule/View (= 1.4.0)
-  - MKCustomUIModule/Cell (1.4.0):
+    - MKCustomUIModule/Cell (= 1.4.2)
+    - MKCustomUIModule/Controller (= 1.4.2)
+    - MKCustomUIModule/MQTTServerView (= 1.4.2)
+    - MKCustomUIModule/UIAdopter (= 1.4.2)
+    - MKCustomUIModule/View (= 1.4.2)
+  - MKCustomUIModule/Cell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/LoRaCell (= 1.4.0)
-    - MKCustomUIModule/Cell/NormalCell (= 1.4.0)
-  - MKCustomUIModule/Cell/LoRaCell (1.4.0):
+    - MKCustomUIModule/Cell/LoRaCell (= 1.4.2)
+    - MKCustomUIModule/Cell/NormalCell (= 1.4.2)
+  - MKCustomUIModule/Cell/LoRaCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKFilterConditionCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (= 1.4.0)
-    - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (= 1.4.0)
-  - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (1.4.0):
+    - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterConditionCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (= 1.4.2)
+    - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (= 1.4.2)
+  - MKCustomUIModule/Cell/LoRaCell/MKAdvancedSettingCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/LoRaCell/MKFilterConditionCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterConditionCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -118,66 +119,34 @@ PODS:
     - MKBaseModuleLibrary
     - MKCustomUIModule/UIAdopter
     - MKCustomUIModule/View/MKPickerView
-  - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterDataCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKFilterRawAdvDataCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKLoraDeviceTypeCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKLoRaSettingCHCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKPickerView
-  - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (1.4.0):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-    - MKCustomUIModule/UIAdopter
-    - MKCustomUIModule/View/MKSlider
-  - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (1.4.0):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (1.4.0):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/NormalCell (1.4.0):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-    - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (= 1.4.0)
-    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (= 1.4.0)
-    - MKCustomUIModule/Cell/NormalCell/MKSettingTextCell (= 1.4.0)
-    - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (= 1.4.0)
-    - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (= 1.4.0)
-    - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (= 1.4.0)
-  - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKMeasureTxPowerCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -185,73 +154,105 @@ PODS:
     - MKBaseModuleLibrary
     - MKCustomUIModule/UIAdopter
     - MKCustomUIModule/View/MKSlider
-  - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKMixedChoiceCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/NormalCell/MKSettingTextCell (1.4.0):
+  - MKCustomUIModule/Cell/LoRaCell/MKRawAdvDataOperationCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (1.4.0):
+  - MKCustomUIModule/Cell/NormalCell (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (= 1.4.2)
+    - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (= 1.4.2)
+    - MKCustomUIModule/Cell/NormalCell/MKSettingTextCell (= 1.4.2)
+    - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (= 1.4.2)
+    - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (= 1.4.2)
+    - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (= 1.4.2)
+  - MKCustomUIModule/Cell/NormalCell/MKNormalSliderCell (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/UIAdopter
+    - MKCustomUIModule/View/MKSlider
+  - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell/MKSettingTextCell (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/Cell/NormalCell/MKTextButtonCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKPickerView
-  - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (1.4.0):
+  - MKCustomUIModule/Cell/NormalCell/MKTextFieldCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (1.4.0):
+  - MKCustomUIModule/Cell/NormalCell/MKTextSwitchCell (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller (1.4.0):
+  - MKCustomUIModule/Controller (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/CASelectPage (= 1.4.0)
-    - MKCustomUIModule/Controller/MKAboutPage (= 1.4.0)
-    - MKCustomUIModule/Controller/MKAlertController (= 1.4.0)
-    - MKCustomUIModule/Controller/MKTrackerAboutPage (= 1.4.0)
-    - MKCustomUIModule/Controller/MKTrackerLogPage (= 1.4.0)
-  - MKCustomUIModule/Controller/CASelectPage (1.4.0):
+    - MKCustomUIModule/Controller/CASelectPage (= 1.4.2)
+    - MKCustomUIModule/Controller/MKAboutPage (= 1.4.2)
+    - MKCustomUIModule/Controller/MKAlertController (= 1.4.2)
+    - MKCustomUIModule/Controller/MKTrackerAboutPage (= 1.4.2)
+    - MKCustomUIModule/Controller/MKTrackerLogPage (= 1.4.2)
+  - MKCustomUIModule/Controller/CASelectPage (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/CASelectPage/Controller (= 1.4.0)
-  - MKCustomUIModule/Controller/CASelectPage/Controller (1.4.0):
+    - MKCustomUIModule/Controller/CASelectPage/Controller (= 1.4.2)
+  - MKCustomUIModule/Controller/CASelectPage/Controller (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/Cell/NormalCell/MKNormalTextCell
-  - MKCustomUIModule/Controller/MKAboutPage (1.4.0):
+  - MKCustomUIModule/Controller/MKAboutPage (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKAboutPage/Controller (= 1.4.0)
-    - MKCustomUIModule/Controller/MKAboutPage/Model (= 1.4.0)
-    - MKCustomUIModule/Controller/MKAboutPage/View (= 1.4.0)
-  - MKCustomUIModule/Controller/MKAboutPage/Controller (1.4.0):
+    - MKCustomUIModule/Controller/MKAboutPage/Controller (= 1.4.2)
+    - MKCustomUIModule/Controller/MKAboutPage/Model (= 1.4.2)
+    - MKCustomUIModule/Controller/MKAboutPage/View (= 1.4.2)
+  - MKCustomUIModule/Controller/MKAboutPage/Controller (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -259,180 +260,188 @@ PODS:
     - MKBaseModuleLibrary
     - MKCustomUIModule/Controller/MKAboutPage/Model
     - MKCustomUIModule/Controller/MKAboutPage/View
-  - MKCustomUIModule/Controller/MKAboutPage/Model (1.4.0):
+  - MKCustomUIModule/Controller/MKAboutPage/Model (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller/MKAboutPage/View (1.4.0):
+  - MKCustomUIModule/Controller/MKAboutPage/View (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/Controller/MKAboutPage/Model
-  - MKCustomUIModule/Controller/MKAlertController (1.4.0):
+  - MKCustomUIModule/Controller/MKAlertController (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller/MKTrackerAboutPage (1.4.0):
+  - MKCustomUIModule/Controller/MKTrackerAboutPage (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (= 1.4.0)
-  - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (1.4.0):
+    - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (= 1.4.2)
+  - MKCustomUIModule/Controller/MKTrackerAboutPage/Controller (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/Controller/MKTrackerLogPage (1.4.0):
+  - MKCustomUIModule/Controller/MKTrackerLogPage (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (= 1.4.0)
-  - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (1.4.0):
+    - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (= 1.4.2)
+  - MKCustomUIModule/Controller/MKTrackerLogPage/Controller (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/MQTTServerView (1.4.0):
+  - MKCustomUIModule/MQTTServerView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/MQTTServerView/GeneralParams (= 1.4.0)
-    - MKCustomUIModule/MQTTServerView/SSL (= 1.4.0)
-    - MKCustomUIModule/MQTTServerView/UserCredentials (= 1.4.0)
-  - MKCustomUIModule/MQTTServerView/GeneralParams (1.4.0):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-    - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/MQTTServerView/SSL (1.4.0):
-    - CircleProgressBar
-    - Masonry
-    - MBProgressHUD
-    - MJRefresh
-    - MKBaseModuleLibrary
-  - MKCustomUIModule/MQTTServerView/UserCredentials (1.4.0):
+    - MKCustomUIModule/MQTTServerView/GeneralParams (= 1.4.2)
+    - MKCustomUIModule/MQTTServerView/SSL (= 1.4.2)
+    - MKCustomUIModule/MQTTServerView/UserCredentials (= 1.4.2)
+  - MKCustomUIModule/MQTTServerView/GeneralParams (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
-  - MKCustomUIModule/UIAdopter (1.4.0):
+  - MKCustomUIModule/MQTTServerView/SSL (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/MQTTServerView/UserCredentials (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/UIAdopter (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View
-  - MKCustomUIModule/View (1.4.0):
+  - MKCustomUIModule/View (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-    - MKCustomUIModule/View/HaveRefreshView (= 1.4.0)
-    - MKCustomUIModule/View/MKHexKeyBoard (= 1.4.0)
-    - MKCustomUIModule/View/MKHudManager (= 1.4.0)
-    - MKCustomUIModule/View/MKPageControl (= 1.4.0)
-    - MKCustomUIModule/View/MKPickerView (= 1.4.0)
-    - MKCustomUIModule/View/MKProgressView (= 1.4.0)
-    - MKCustomUIModule/View/MKSearchButton (= 1.4.0)
-    - MKCustomUIModule/View/MKSearchConditionsView (= 1.4.0)
-    - MKCustomUIModule/View/MKSlider (= 1.4.0)
-    - MKCustomUIModule/View/MKTableSectionHeader (= 1.4.0)
-    - MKCustomUIModule/View/MKTextField (= 1.4.0)
-    - MKCustomUIModule/View/NirKxMenu (= 1.4.0)
-    - MKCustomUIModule/View/WifiAlertView (= 1.4.0)
-  - MKCustomUIModule/View/HaveRefreshView (1.4.0):
+    - MKCustomUIModule/View/HaveRefreshView (= 1.4.2)
+    - MKCustomUIModule/View/MKAlertView (= 1.4.2)
+    - MKCustomUIModule/View/MKHexKeyBoard (= 1.4.2)
+    - MKCustomUIModule/View/MKHudManager (= 1.4.2)
+    - MKCustomUIModule/View/MKPageControl (= 1.4.2)
+    - MKCustomUIModule/View/MKPickerView (= 1.4.2)
+    - MKCustomUIModule/View/MKProgressView (= 1.4.2)
+    - MKCustomUIModule/View/MKSearchButton (= 1.4.2)
+    - MKCustomUIModule/View/MKSearchConditionsView (= 1.4.2)
+    - MKCustomUIModule/View/MKSlider (= 1.4.2)
+    - MKCustomUIModule/View/MKTableSectionHeader (= 1.4.2)
+    - MKCustomUIModule/View/MKTextField (= 1.4.2)
+    - MKCustomUIModule/View/NirKxMenu (= 1.4.2)
+    - MKCustomUIModule/View/WifiAlertView (= 1.4.2)
+  - MKCustomUIModule/View/HaveRefreshView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKHexKeyBoard (1.4.0):
+  - MKCustomUIModule/View/MKAlertView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKHudManager (1.4.0):
+    - MKCustomUIModule/View/MKTextField
+  - MKCustomUIModule/View/MKHexKeyBoard (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKPageControl (1.4.0):
+  - MKCustomUIModule/View/MKHudManager (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKPickerView (1.4.0):
+  - MKCustomUIModule/View/MKPageControl (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKProgressView (1.4.0):
+  - MKCustomUIModule/View/MKPickerView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKSearchButton (1.4.0):
+  - MKCustomUIModule/View/MKProgressView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKSearchConditionsView (1.4.0):
+  - MKCustomUIModule/View/MKSearchButton (1.4.2):
+    - CircleProgressBar
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - MKBaseModuleLibrary
+  - MKCustomUIModule/View/MKSearchConditionsView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKSlider
-  - MKCustomUIModule/View/MKSlider (1.4.0):
+  - MKCustomUIModule/View/MKSlider (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKTableSectionHeader (1.4.0):
+  - MKCustomUIModule/View/MKTableSectionHeader (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/MKTextField (1.4.0):
+  - MKCustomUIModule/View/MKTextField (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/NirKxMenu (1.4.0):
+  - MKCustomUIModule/View/NirKxMenu (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
     - MJRefresh
     - MKBaseModuleLibrary
-  - MKCustomUIModule/View/WifiAlertView (1.4.0):
+  - MKCustomUIModule/View/WifiAlertView (1.4.2):
     - CircleProgressBar
     - Masonry
     - MBProgressHUD
@@ -440,16 +449,1035 @@ PODS:
     - MKBaseModuleLibrary
     - MKCustomUIModule/View/MKTextField
   - MKNBJplugApp (0.0.1):
+    - MKNBJplugApp/Expand (= 0.0.1)
+    - MKNBJplugApp/Functions (= 0.0.1)
+    - MKNBJplugApp/SDK (= 0.0.1)
+    - MKNBJplugApp/Target (= 0.0.1)
+  - MKNBJplugApp/Expand (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/BaseController (= 0.0.1)
+    - MKNBJplugApp/Expand/DeviceModel (= 0.0.1)
+    - MKNBJplugApp/Expand/Manager (= 0.0.1)
+    - MKNBJplugApp/Expand/View (= 0.0.1)
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/BaseController (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/BaseController/Controller (= 0.0.1)
+    - MKNBJplugApp/Expand/BaseController/Model (= 0.0.1)
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/BaseController/Controller (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/BaseController/Model
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/BaseController/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/DeviceModel
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/DeviceModel (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/DeviceModel/Manager (= 0.0.1)
+    - MKNBJplugApp/Expand/DeviceModel/Model (= 0.0.1)
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/DeviceModel/Manager (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/DeviceModel/Model (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/Manager (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/Manager/DatabaseManager (= 0.0.1)
+    - MKNBJplugApp/Expand/Manager/ExcelManager (= 0.0.1)
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/Manager/DatabaseManager (0.0.1):
     - FMDB
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/DeviceModel/Model
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/Manager/ExcelManager (0.0.1):
+    - libxlsxwriter
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/SDK/MQTT
+    - SSZipArchive
+  - MKNBJplugApp/Expand/View (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand/View/UserCredentialsView (= 0.0.1)
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Expand/View/UserCredentialsView (0.0.1):
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/SDK/MQTT
+  - MKNBJplugApp/Functions (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/AddDevicePage (= 0.0.1)
+    - MKNBJplugApp/Functions/ConnectSettingPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ConnectSuccessPage (= 0.0.1)
+    - MKNBJplugApp/Functions/DebuggerPage (= 0.0.1)
+    - MKNBJplugApp/Functions/DeviceInfoPage (= 0.0.1)
+    - MKNBJplugApp/Functions/DeviceListPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ElectricityPage (= 0.0.1)
+    - MKNBJplugApp/Functions/EnergyPage (= 0.0.1)
+    - MKNBJplugApp/Functions/EnergyParamPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ImportServerPage (= 0.0.1)
+    - MKNBJplugApp/Functions/IndicatorColorPage (= 0.0.1)
+    - MKNBJplugApp/Functions/IndicatorSettingPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage (= 0.0.1)
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage (= 0.0.1)
+    - MKNBJplugApp/Functions/NotificationSwitchPage (= 0.0.1)
+    - MKNBJplugApp/Functions/NTPServerPage (= 0.0.1)
+    - MKNBJplugApp/Functions/OTAPage (= 0.0.1)
+    - MKNBJplugApp/Functions/PeriodicalReportPage (= 0.0.1)
+    - MKNBJplugApp/Functions/PowerOnModePage (= 0.0.1)
+    - MKNBJplugApp/Functions/PowerReportPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ProtectionConfigPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ProtectionSwitchPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ScanPage (= 0.0.1)
+    - MKNBJplugApp/Functions/ServerForApp (= 0.0.1)
+    - MKNBJplugApp/Functions/ServerForDevice (= 0.0.1)
+    - MKNBJplugApp/Functions/SettingsPage (= 0.0.1)
+    - MKNBJplugApp/Functions/SwitchStatePage (= 0.0.1)
+    - MKNBJplugApp/Functions/SystemTimePage (= 0.0.1)
+    - MKNBJplugApp/Functions/UpdatePage (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/AddDevicePage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/AddDevicePage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/AddDevicePage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/AddDevicePage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/AddDevicePage/View
+    - MKNBJplugApp/Functions/ServerForDevice/Controller
+    - MKNBJplugApp/Functions/UpdatePage/Controller
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/AddDevicePage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ConnectSettingPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ConnectSettingPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ConnectSettingPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ConnectSettingPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ConnectSettingPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ConnectSettingPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ConnectSuccessPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ConnectSuccessPage/Controller (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ConnectSuccessPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DebuggerPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/DebuggerPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/DebuggerPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DebuggerPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/DebuggerPage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DebuggerPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceInfoPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/DeviceInfoPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/DeviceInfoPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceInfoPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/DeviceInfoPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceInfoPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceListPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/DeviceListPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/DeviceListPage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/DeviceListPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceListPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/DeviceListPage/Model
+    - MKNBJplugApp/Functions/DeviceListPage/View
+    - MKNBJplugApp/Functions/ScanPage/Controller
+    - MKNBJplugApp/Functions/ServerForApp/Controller
+    - MKNBJplugApp/Functions/SwitchStatePage/Controller
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceListPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/DeviceListPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ElectricityPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ElectricityPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ElectricityPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ElectricityPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ElectricityPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ElectricityPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/EnergyPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/EnergyPage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/EnergyPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/EnergyPage/Model
+    - MKNBJplugApp/Functions/EnergyPage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyParamPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/EnergyParamPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/EnergyParamPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyParamPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/EnergyParamPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/EnergyParamPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ImportServerPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ImportServerPage/Controller (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ImportServerPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorColorPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/IndicatorColorPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/IndicatorColorPage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/IndicatorColorPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorColorPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/IndicatorColorPage/Model
+    - MKNBJplugApp/Functions/IndicatorColorPage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorColorPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorColorPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorSettingPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/IndicatorSettingPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/IndicatorSettingPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorSettingPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/IndicatorColorPage/Controller
+    - MKNBJplugApp/Functions/IndicatorSettingPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/IndicatorSettingPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ModifyMQTTServerPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ModifyMQTTServerPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage/Model
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ModifyMQTTServerPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ModifyMQTTServerPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/MQTTSettingInfoPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/MQTTSettingInfoPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage/Model
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/MQTTSettingInfoPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/MQTTSettingInfoPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/NotificationSwitchPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/NotificationSwitchPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/NotificationSwitchPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/NotificationSwitchPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/NotificationSwitchPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/NotificationSwitchPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/NTPServerPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/NTPServerPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/NTPServerPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/NTPServerPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/NTPServerPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/NTPServerPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/OTAPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/OTAPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/OTAPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/OTAPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/OTAPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/OTAPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PeriodicalReportPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/PeriodicalReportPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/PeriodicalReportPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PeriodicalReportPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/PeriodicalReportPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PeriodicalReportPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerOnModePage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/PowerOnModePage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/PowerOnModePage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/PowerOnModePage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerOnModePage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/PowerOnModePage/Model
+    - MKNBJplugApp/Functions/PowerOnModePage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerOnModePage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerOnModePage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerReportPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/PowerReportPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/PowerReportPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerReportPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/PowerReportPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/PowerReportPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ProtectionConfigPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Header (= 0.0.1)
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ProtectionConfigPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Header
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ProtectionConfigPage/Header (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ProtectionConfigPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Header
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ProtectionSwitchPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ProtectionSwitchPage/Controller (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ProtectionSwitchPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ProtectionConfigPage/Controller
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ScanPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ScanPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ScanPage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/ScanPage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ScanPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/AddDevicePage/Controller
+    - MKNBJplugApp/Functions/DebuggerPage/Controller
+    - MKNBJplugApp/Functions/ScanPage/Model
+    - MKNBJplugApp/Functions/ScanPage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ScanPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ScanPage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ScanPage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForApp (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ServerForApp/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ServerForApp/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/ServerForApp/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForApp/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ImportServerPage/Controller
+    - MKNBJplugApp/Functions/ServerForApp/Model
+    - MKNBJplugApp/Functions/ServerForApp/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForApp/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForApp/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForDevice (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ServerForDevice/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/ServerForDevice/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/ServerForDevice/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForDevice/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ConnectSuccessPage/Controller
+    - MKNBJplugApp/Functions/ImportServerPage/Controller
+    - MKNBJplugApp/Functions/ServerForDevice/Model
+    - MKNBJplugApp/Functions/ServerForDevice/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForDevice/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/ServerForDevice/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SettingsPage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/SettingsPage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/SettingsPage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SettingsPage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ConnectSettingPage/Controller
+    - MKNBJplugApp/Functions/DebuggerPage/Controller
+    - MKNBJplugApp/Functions/DeviceInfoPage/Controller
+    - MKNBJplugApp/Functions/EnergyParamPage/Controller
+    - MKNBJplugApp/Functions/IndicatorSettingPage/Controller
+    - MKNBJplugApp/Functions/ModifyMQTTServerPage/Controller
+    - MKNBJplugApp/Functions/MQTTSettingInfoPage/Controller
+    - MKNBJplugApp/Functions/NotificationSwitchPage/Controller
+    - MKNBJplugApp/Functions/OTAPage/Controller
+    - MKNBJplugApp/Functions/PeriodicalReportPage/Controller
+    - MKNBJplugApp/Functions/PowerOnModePage/Controller
+    - MKNBJplugApp/Functions/PowerReportPage/Controller
+    - MKNBJplugApp/Functions/ProtectionSwitchPage/Controller
+    - MKNBJplugApp/Functions/SettingsPage/Model
+    - MKNBJplugApp/Functions/SystemTimePage/Controller
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SettingsPage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SwitchStatePage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/SwitchStatePage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/SwitchStatePage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/SwitchStatePage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SwitchStatePage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/ElectricityPage/Controller
+    - MKNBJplugApp/Functions/EnergyPage/Controller
+    - MKNBJplugApp/Functions/SettingsPage/Controller
+    - MKNBJplugApp/Functions/SwitchStatePage/Model
+    - MKNBJplugApp/Functions/SwitchStatePage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SwitchStatePage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SwitchStatePage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SystemTimePage (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/SystemTimePage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/SystemTimePage/Model (= 0.0.1)
+    - MKNBJplugApp/Functions/SystemTimePage/View (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SystemTimePage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/NTPServerPage/Controller
+    - MKNBJplugApp/Functions/SystemTimePage/Model
+    - MKNBJplugApp/Functions/SystemTimePage/View
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SystemTimePage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/SystemTimePage/View (0.0.1):
+    - CTMediator
+    - HHTransition
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/UpdatePage (0.0.1):
+    - CTMediator
     - HHTransition
     - iOSDFULibrary
-    - libxlsxwriter
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/UpdatePage/Controller (= 0.0.1)
+    - MKNBJplugApp/Functions/UpdatePage/Model (= 0.0.1)
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/UpdatePage/Controller (0.0.1):
+    - CTMediator
+    - HHTransition
+    - iOSDFULibrary
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/Functions/UpdatePage/Model
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/Functions/UpdatePage/Model (0.0.1):
+    - CTMediator
+    - HHTransition
+    - iOSDFULibrary
+    - MKBaseModuleLibrary
+    - MKCustomUIModule
+    - MKNBJplugApp/Expand
+    - MKNBJplugApp/SDK
+    - MLInputDodger
+  - MKNBJplugApp/SDK (0.0.1):
+    - MKBaseModuleLibrary
+    - MKBaseMQTTModule
+    - MKNBJplugApp/SDK/BLE (= 0.0.1)
+    - MKNBJplugApp/SDK/MQTT (= 0.0.1)
+  - MKNBJplugApp/SDK/BLE (0.0.1):
     - MKBaseBleModule
     - MKBaseModuleLibrary
     - MKBaseMQTTModule
-    - MKCustomUIModule
-    - MLInputDodger
-    - SSZipArchive
+  - MKNBJplugApp/SDK/MQTT (0.0.1):
+    - MKBaseModuleLibrary
+    - MKBaseMQTTModule
+  - MKNBJplugApp/Target (0.0.1):
+    - MKBaseModuleLibrary
+    - MKNBJplugApp/Functions
   - MLInputDodger (1.5.2)
   - MQTTClient (0.15.3):
     - MQTTClient/Core (= 0.15.3)
@@ -471,6 +1499,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - CircleProgressBar
+    - CTMediator
     - FMDB
     - HHTransition
     - iOSDFULibrary
@@ -496,6 +1525,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   CircleProgressBar: 3920079be5224b62b3d9ed6eeb23ac01c835b681
+  CTMediator: f1cf58d509fb3192086c367711f039efd769b907
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   HHTransition: ca5035c126a6a2dc1eb9a90d084013784bf4bf0a
   iOSDFULibrary: 3500ac00451aa7d8ec48a752e91099669a2c1d27
@@ -503,11 +1533,11 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
-  MKBaseBleModule: 6019b69cf3c5a220b1cfe18e71e1e5e63f4757da
-  MKBaseModuleLibrary: 859013194f81daa5f8a7a777ce88bf58cd3b5919
+  MKBaseBleModule: 8f906dd4de30c5f2f581b22c47f0f80c1f564e8c
+  MKBaseModuleLibrary: bfe8141f0ec3f60a9d3d71fb3ea82eac1bcf74fb
   MKBaseMQTTModule: a897389b91385b06f3eee1c9be26e89ca449ef93
-  MKCustomUIModule: 91646517fc7a90d94dd5578d119fec38d67d6a90
-  MKNBJplugApp: 826cab66f66d17956de062c6f6612331191496c1
+  MKCustomUIModule: a3e26cfbe4b579e5fd2603b8f622312a6069ef1d
+  MKNBJplugApp: 1fb1bccd0ab0613b652c4e8d92eacd79a15ff9e7
   MLInputDodger: 79a0e420a80d0d3bba122bf2639603cc76609ba8
   MQTTClient: 0dfa04e789479c2e461786464969895c1fcb0875
   SSZipArchive: e7b4f3d9e780c2acc1764cd88fbf2de28f26e5b2

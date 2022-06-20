@@ -15,7 +15,7 @@
 #import "UISegmentedControl+MKAdd.h"
 
 #import "MKHudManager.h"
-#import "MKAlertController.h"
+#import "MKAlertView.h"
 
 #import "MKNBJEnergyModel.h"
 
@@ -64,21 +64,19 @@ static CGFloat const segmentHeight = 30.f;
 #pragma mark - super method
 
 - (void)rightButtonMethod {
-    NSString *msg = @"After reset, all energy data will be deleted, please confirm again whether to reset it？";
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Reset Energy Data"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alertView addAction:cancelAction];
     @weakify(self);
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"Cancel" handler:^{
+    }];
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
         @strongify(self);
         [self clearAllEnergyDatas];
     }];
-    [alertView addAction:moreAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    NSString *msg = @"After reset, all energy data will be deleted, please confirm again whether to reset it？";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"Reset Energy Data" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 #pragma mark - UIScrollViewDelegate

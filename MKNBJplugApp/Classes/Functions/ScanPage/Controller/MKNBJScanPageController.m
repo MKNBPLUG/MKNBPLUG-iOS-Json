@@ -19,7 +19,7 @@
 
 #import "MKHudManager.h"
 #import "MKCustomUIAdopter.h"
-#import "MKAlertController.h"
+#import "MKAlertView.h"
 
 //#import "CTMediator+MKNBJAdd.h"
 
@@ -54,8 +54,6 @@ mk_nbj_centralManagerScanDelegate>
 @property (nonatomic, assign)BOOL isNeedRefresh;
 
 @property (nonatomic, strong)NSMutableDictionary *deviceCache;
-
-@property (nonatomic, strong)UITextField *passwordField;
 
 /// 保存当前密码输入框ascii字符部分
 @property (nonatomic, copy)NSString *asciiText;
@@ -231,38 +229,39 @@ mk_nbj_centralManagerScanDelegate>
         [self connectDeviceWithoutPassword:deviceModel];
         return;
     }
-    NSString *msg = @"Please enter connection password.";
-    MKAlertController *alertController = [MKAlertController alertControllerWithTitle:@"Enter password"
-                                                                             message:msg
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
+    
     @weakify(self);
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        @strongify(self);
-        self.passwordField = nil;
-        self.passwordField = textField;
-        NSString *localPassword = [[NSUserDefaults standardUserDefaults] objectForKey:localPasswordKey];
-        textField.text = localPassword;
-        self.asciiText = localPassword;
-        self.passwordField.placeholder = @"The password is 8 characters.";
-        [textField addTarget:self action:@selector(passwordInput) forControlEvents:UIControlEventEditingChanged];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"Cancel" handler:^{
         @strongify(self);
         self.rightButton.selected = NO;
         [self rightButtonMethod];
     }];
-    [alertController addAction:cancelAction];
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
         @strongify(self);
         [self connectDevice:deviceModel];
     }];
-    [alertController addAction:moreAction];
+    NSString *localPassword = [[NSUserDefaults standardUserDefaults] objectForKey:localPasswordKey];
+    self.asciiText = localPassword;
+    MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr(localPassword)
+                                                                          placeholder:@"The password is 8 characters."
+                                                                        textFieldType:mk_normal
+                                                                            maxLength:8
+                                                                              handler:^(NSString * _Nonnull text) {
+        @strongify(self);
+        self.asciiText = text;
+    }];
     
-    [self presentViewController:alertController animated:YES completion:nil];
+    NSString *msg = @"Please enter connection password.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView addTextField:textField];
+    [alertView showAlertWithTitle:@"Enter password" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 - (void)connectDevice:(MKNBJScanPageModel *)deviecModel {
-    NSString *password = self.passwordField.text;
+    NSString *password = self.asciiText;
     if (password.length != 8) {
         [self.view showCentralToast:@"The password should be 8 characters."];
         return;
@@ -309,32 +308,6 @@ mk_nbj_centralManagerScanDelegate>
 - (void)connectFailed {
     self.rightButton.selected = NO;
     [self rightButtonMethod];
-}
-
-/**
- 监听输入的密码
- */
-- (void)passwordInput{
-    NSString *inputValue = self.passwordField.text;
-    if (!ValidStr(inputValue)) {
-        self.passwordField.text = @"";
-        self.asciiText = @"";
-        return;
-    }
-    NSInteger strLen = inputValue.length;
-    NSInteger dataLen = [inputValue dataUsingEncoding:NSUTF8StringEncoding].length;
-    NSString *currentStr = self.asciiText;
-    if (dataLen == strLen) {
-        //当前输入是ascii字符
-        currentStr = inputValue;
-    }
-    if (currentStr.length > 8) {
-        self.passwordField.text = [currentStr substringToIndex:8];
-        self.asciiText = [currentStr substringToIndex:8];
-    }else {
-        self.passwordField.text = currentStr;
-        self.asciiText = currentStr;
-    }
 }
 
 #pragma mark - UI

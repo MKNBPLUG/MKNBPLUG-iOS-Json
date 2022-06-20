@@ -17,10 +17,10 @@
 
 #import "MKHudManager.h"
 #import "MKCustomUIAdopter.h"
-#import "MKAlertController.h"
 #import "MKSettingTextCell.h"
 #import "MKTextSwitchCell.h"
 #import "MKTableSectionLineHeader.h"
+#import "MKAlertView.h"
 
 #import "MKNBJDeviceListDatabaseManager.h"
 
@@ -67,8 +67,6 @@ mk_textSwitchCellDelegate>
 @property (nonatomic, strong)MKNBJSettingsPageModel *dataModel;
 
 @property (nonatomic, strong)MKNBJSettingPageBleModel *bleDataModel;
-
-@property (nonatomic, strong)UITextField *localNameField;
 
 @property (nonatomic, copy)NSString *localNameAsciiStr;
 
@@ -269,41 +267,37 @@ mk_textSwitchCellDelegate>
 
 #pragma mark - event method
 - (void)removeButtonPressed {
-    NSString *msg = @"Please confirm again whether to remove the device，the device will be deleted from the device list.";
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Remove Device"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
     @weakify(self);
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"Cancel" handler:^{
+        
     }];
-    [alertView addAction:cancelAction];
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"Confirm" handler:^{
         @strongify(self);
         [self removeDevice];
     }];
-    [alertView addAction:moreAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    NSString *msg = @"Please confirm again whether to remove the device，the device will be deleted from the device list.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"Remove Device" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 - (void)resetButtonPressed {
-    NSString *msg = @"After reset, the device will be removed from the device list, and relevant data will be totally cleared.";
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Reset Device"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
     @weakify(self);
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"Cancel" handler:^{
+        
     }];
-    [alertView addAction:cancelAction];
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"Confirm" handler:^{
         @strongify(self);
         [self resetDevice];
     }];
-    [alertView addAction:moreAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    NSString *msg = @"After reset, the device will be removed from the device list, and relevant data will be totally cleared.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView showAlertWithTitle:@"Reset Device" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 #pragma mark - interface
@@ -398,55 +392,29 @@ mk_textSwitchCellDelegate>
 #pragma mark - 修改设备本地名称
 - (void)configLocalName{
     @weakify(self);
-    NSString *msg = @"Note:The local name should be 1-20 characters.";
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Edit Local Name"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
-    [alertView addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        @strongify(self);
-        self.localNameField = nil;
-        self.localNameField = textField;
-        self.localNameAsciiStr = SafeStr([MKNBJDeviceModeManager shared].deviceName);
-        textField.text = SafeStr([MKNBJDeviceModeManager shared].deviceName);
-        [self.localNameField setPlaceholder:@"1-20 characters"];
-        [self.localNameField addTarget:self
-                                action:@selector(locaNameTextFieldValueChanged:)
-                      forControlEvents:UIControlEventEditingChanged];
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"Cancel" handler:^{
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
-    [alertView addAction:cancelAction];
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"Confirm" handler:^{
         @strongify(self);
         [self saveDeviceLocalName];
     }];
-    [alertView addAction:moreAction];
+    self.localNameAsciiStr = SafeStr([MKNBJDeviceModeManager shared].deviceName);
+    MKAlertViewTextField *textField = [[MKAlertViewTextField alloc] initWithTextValue:SafeStr([MKNBJDeviceModeManager shared].deviceName)
+                                                                          placeholder:@"1-20 characters"
+                                                                        textFieldType:mk_normal
+                                                                            maxLength:20
+                                                                              handler:^(NSString * _Nonnull text) {
+        @strongify(self);
+        self.localNameAsciiStr = text;
+    }];
     
-    [self presentViewController:alertView animated:YES completion:nil];
-}
-
-- (void)locaNameTextFieldValueChanged:(UITextField *)textField{
-    NSString *inputValue = textField.text;
-    if (!ValidStr(inputValue)) {
-        textField.text = @"";
-        self.localNameAsciiStr = @"";
-        return;
-    }
-    NSInteger strLen = inputValue.length;
-    NSInteger dataLen = [inputValue dataUsingEncoding:NSUTF8StringEncoding].length;
-    
-    NSString *currentStr = self.localNameAsciiStr;
-    if (dataLen == strLen) {
-        //当前输入是ascii字符
-        currentStr = inputValue;
-    }
-    if (currentStr.length > 20) {
-        textField.text = [currentStr substringToIndex:20];
-        self.localNameAsciiStr = [currentStr substringToIndex:20];
-    }else {
-        textField.text = currentStr;
-        self.localNameAsciiStr = currentStr;
-    }
+    NSString *msg = @"Note:The local name should be 1-20 characters.";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView addAction:confirmAction];
+    [alertView addTextField:textField];
+    [alertView showAlertWithTitle:@"Edit Local Name" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 - (void)saveDeviceLocalName {

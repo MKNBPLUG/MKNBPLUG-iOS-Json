@@ -18,8 +18,8 @@
 #import "UITableView+MKAdd.h"
 
 #import "MKCustomUIAdopter.h"
-#import "MKAlertController.h"
 #import "MKHudManager.h"
+#import "MKAlertView.h"
 
 #import "MKNBJLogDatabaseManager.h"
 
@@ -230,22 +230,19 @@ MKNBJDebuggerCellDelegate>
 }
 
 - (void)deleteButtonPressed {
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@""
-                                                                       message:@"Please confirm whether to delete the files?"
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
-    
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+    @weakify(self);
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"NO" handler:^{
     }];
-    [alertView addAction:cancelAction];
     
-    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:@"YES" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *confirmAction = [[MKAlertViewAction alloc] initWithTitle:@"YES" handler:^{
+        @strongify(self);
         [self deleteLogDatas];
     }];
+    NSString *msg = @"Please confirm whether to delete the files?";
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
     [alertView addAction:confirmAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    [alertView showAlertWithTitle:@"" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 - (void)exportButtonPressed {
@@ -428,16 +425,12 @@ MKNBJDebuggerCellDelegate>
 }
 
 - (void)showTipsAlert:(NSString *)msg {
-    MKAlertController *alertView = [MKAlertController alertControllerWithTitle:@"Tips!"
-                                                                       message:msg
-                                                                preferredStyle:UIAlertControllerStyleAlert];
-    alertView.notificationName = @"mk_nbj_needDismissAlert";
-    
-    UIAlertAction *moreAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    MKAlertViewAction *cancelAction = [[MKAlertViewAction alloc] initWithTitle:@"OK" handler:^{
+        
     }];
-    [alertView addAction:moreAction];
-    
-    [self presentViewController:alertView animated:YES completion:nil];
+    MKAlertView *alertView = [[MKAlertView alloc] init];
+    [alertView addAction:cancelAction];
+    [alertView showAlertWithTitle:@"Tips!" message:msg notificationName:@"mk_nbj_needDismissAlert"];
 }
 
 #pragma mark - UI

@@ -186,7 +186,7 @@
         if (!ValidStr(self.firmwareModel.port) || [self.firmwareModel.port integerValue] < 1 || [self.firmwareModel.port integerValue] > 65535) {
             return @"Port error";
         }
-        if (!ValidStr(self.firmwareModel.filePath) || self.firmwareModel.filePath.length > 100) {
+        if (!ValidStr(self.firmwareModel.filePath) || self.firmwareModel.filePath.length > 128) {
             return @"File Path error";
         }
     }
@@ -198,7 +198,7 @@
         if (!ValidStr(self.caFileModel.port) || [self.caFileModel.port integerValue] < 1 || [self.caFileModel.port integerValue] > 65535) {
             return @"Port error";
         }
-        if (!ValidStr(self.caFileModel.filePath) || self.caFileModel.filePath.length > 100) {
+        if (!ValidStr(self.caFileModel.filePath) || self.caFileModel.filePath.length > 128) {
             return @"File Path error";
         }
     }
@@ -210,13 +210,13 @@
         if (!ValidStr(self.signedModel.port) || [self.signedModel.port integerValue] < 1 || [self.signedModel.port integerValue] > 65535) {
             return @"Port error";
         }
-        if (!ValidStr(self.signedModel.caFilePath) || self.signedModel.caFilePath.length > 100) {
+        if (!ValidStr(self.signedModel.caFilePath) || self.signedModel.caFilePath.length > 128) {
             return @"CA File Path error";
         }
-        if (!ValidStr(self.signedModel.clientKeyPath) || self.signedModel.clientKeyPath.length > 100) {
+        if (!ValidStr(self.signedModel.clientKeyPath) || self.signedModel.clientKeyPath.length > 128) {
             return @"Client Key file error";
         }
-        if (!ValidStr(self.signedModel.clientCertPath) || self.signedModel.clientCertPath.length > 100) {
+        if (!ValidStr(self.signedModel.clientCertPath) || self.signedModel.clientCertPath.length > 128) {
             return @"Client Cert file error";
         }
     }

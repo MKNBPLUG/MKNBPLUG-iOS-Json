@@ -126,7 +126,7 @@ static dispatch_once_t onceToken;
         return;
     }
     if (msgID == 3067) {
-        //电量信息
+        //OTA结果
         [[NSNotificationCenter defaultCenter] postNotificationName:MKNBJReceiveDeviceOTAResultNotification
                                                             object:nil
                                                           userInfo:dataDic];

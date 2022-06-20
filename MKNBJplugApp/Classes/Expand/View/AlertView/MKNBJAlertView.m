@@ -44,6 +44,10 @@ static CGFloat const buttonHeight = 50.f;
 
 @implementation MKNBJAlertView
 
+- (void)dealloc {
+    NSLog(@"MKNBJAlertView销毁");
+}
+
 - (instancetype)init{
     if (self = [super init]) {
         self.frame = kAppWindow.bounds;
