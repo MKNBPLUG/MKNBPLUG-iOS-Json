@@ -8,8 +8,6 @@
 
 #import "MKNBJDeviceListController.h"
 
-#import <CoreLocation/CoreLocation.h>
-
 #import "Masonry.h"
 
 #import "MKMacroDefines.h"
@@ -340,11 +338,6 @@ MKNBJDeviceListCellDelegate>
 
 #pragma mark - event method
 - (void)addButtonPressed {
-    if ([kSystemVersionString floatValue] >= 13 && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedAlways && [CLLocationManager authorizationStatus] != kCLAuthorizationStatusAuthorizedWhenInUse) {
-            //未授权位置信息
-            [self showAuthAlert];
-            return;
-        }
     if (!ValidStr([MKNBJMQTTServerManager shared].serverParams.host)) {
         //如果MQTT服务器参数不存在，则去引导用户添加服务器参数，让app连接MQTT服务器
         [self rightButtonMethod];
@@ -356,23 +349,6 @@ MKNBJDeviceListCellDelegate>
 }
 
 #pragma mark - private method
-- (void)showAuthAlert {
-    NSString *msg = @"Please go to Settings-Privacy-Location Services to turn on location services permission.";
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Note"
-                                                                             message:msg
-                                                                      preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:nil];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Confirm" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]
-                                           options:@{}
-                                 completionHandler:nil];
-    }];
-    [alertController addAction:cancelAction];
-    [alertController addAction:okAction];
-    [self presentViewController:alertController animated:YES completion:nil];
-}
 
 - (void)removeDeviceFromLocal:(NSInteger)index {
     MKNBJDeviceModel *deviceModel = self.dataList[index];
