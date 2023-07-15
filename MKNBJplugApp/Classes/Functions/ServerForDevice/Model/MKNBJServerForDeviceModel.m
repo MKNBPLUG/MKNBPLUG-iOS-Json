@@ -256,21 +256,23 @@ static NSString *const defaultPubTopic = @"{device_name}/{device_id}/device_to_a
             [self operationFailedBlockWithMsg:@"Config LWT Status Timeout" block:failedBlock];
             return;
         }
-        if (![self configLWTRetain]) {
-            [self operationFailedBlockWithMsg:@"Config LWT Retain Timeout" block:failedBlock];
-            return;
-        }
-        if (![self configLWTQos]) {
-            [self operationFailedBlockWithMsg:@"Config LWT Qos Timeout" block:failedBlock];
-            return;
-        }
-        if (![self configLWTTopic]) {
-            [self operationFailedBlockWithMsg:@"Config LWT Topic Timeout" block:failedBlock];
-            return;
-        }
-        if (![self configLWTPayload]) {
-            [self operationFailedBlockWithMsg:@"Config LWT Payload Timeout" block:failedBlock];
-            return;
+        if (self.lwtStatus) {
+            if (![self configLWTRetain]) {
+                [self operationFailedBlockWithMsg:@"Config LWT Retain Timeout" block:failedBlock];
+                return;
+            }
+            if (![self configLWTQos]) {
+                [self operationFailedBlockWithMsg:@"Config LWT Qos Timeout" block:failedBlock];
+                return;
+            }
+            if (![self configLWTTopic]) {
+                [self operationFailedBlockWithMsg:@"Config LWT Topic Timeout" block:failedBlock];
+                return;
+            }
+            if (![self configLWTPayload]) {
+                [self operationFailedBlockWithMsg:@"Config LWT Payload Timeout" block:failedBlock];
+                return;
+            }
         }
         if (![self configAPN]) {
             [self operationFailedBlockWithMsg:@"Config APN Timeout" block:failedBlock];

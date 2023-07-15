@@ -108,7 +108,12 @@
             },
             {
               "name": "Model",
-              "source_files": "MKNBJplugApp/Classes/Expand/DeviceModel/Model/**"
+              "source_files": "MKNBJplugApp/Classes/Expand/DeviceModel/Model/**",
+              "dependencies": {
+                "MKNBJplugApp/Expand/DeviceModel/Manager": [
+
+                ]
+              }
             }
           ]
         },

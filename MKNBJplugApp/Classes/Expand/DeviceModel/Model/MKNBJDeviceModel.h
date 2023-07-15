@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MKNBJDeviceModeManager.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, MKNBJDeviceModelState) {
@@ -36,7 +38,7 @@ extern NSString *const MKNBJDeviceModelOfflineNotification;
 
 @end
 
-@interface MKNBJDeviceModel : NSObject
+@interface MKNBJDeviceModel : NSObject<MKNBJDeviceModeManagerDataProtocol>
 
 /**
  数据交互可能存在多个设备订阅同一个topic的情况，这个时候只能通过deviceID区分设备，所以统一为topic+deviceID来区分通信数据

@@ -131,7 +131,7 @@ static NSString *const defaultKeyValueString = @"value:";
     
     //MQTT Password
     worksheet_write_string(worksheet, 10, 0, "MQTT Password", NULL);
-    NSString *passwordString = [defaultKeyValueString stringByAppendingString:protocol.password];
+    NSString *passwordString = [defaultKeyValueString stringByAppendingString:SafeStr(protocol.password)];
     worksheet_write_string(worksheet, 10, 1, [passwordString UTF8String], NULL);
     worksheet_write_string(worksheet, 10, 2, "0-128 characters", NULL);
     

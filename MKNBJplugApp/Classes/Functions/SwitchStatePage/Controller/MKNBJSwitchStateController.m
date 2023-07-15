@@ -63,7 +63,8 @@ static CGFloat const buttonViewHeight = 50.f;
 @implementation MKNBJSwitchStateController
 
 - (void)dealloc {
-    NSLog(@"MKNBJSwitchStateController销毁");    
+    NSLog(@"MKNBJSwitchStateController销毁");
+    [MKNBJDeviceModeManager sharedDealloc];
 }
 
 - (void)viewDidLoad {

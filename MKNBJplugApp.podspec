@@ -82,6 +82,8 @@ TODO: Add long description of the pod here.
       
       sss.subspec 'Model' do |ssss|
         ssss.source_files = 'MKNBJplugApp/Classes/Expand/DeviceModel/Model/**'
+        
+        ssss.dependency 'MKNBJplugApp/Expand/DeviceModel/Manager'
       end
     end
     
